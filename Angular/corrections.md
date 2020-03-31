@@ -74,8 +74,29 @@ Plusieurs vulnérabilités sont indiquées par le terminal, nous les laissons de
 
 ---
 
+
+---
+### Correction 6
+> [Lien vers l'exercice](exercices.md#exercice-6)
+
+
+- Créez le component `heroes` :
+![](img/c0208.png)
+
+- Importez ce component dans `app.component.html` :
+![](img/c0209.png)
+
+- Dans votre component `heroes`, ajoutez un attribut `hero` de type `string` avec pour valeur le nom de héros de votre choix :
+
+![](img/c0210.png)
+
+- Affichez ce nom de héros dans la partie HTML du component :
+
+![](img/c0211.png)
+
+---
+
 ---
 ### Correction *
 > [Lien vers l'exercice](exercices.md#exercice-*)
-![](img/0*0*.png)
 ---
