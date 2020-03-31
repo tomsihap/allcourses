@@ -112,9 +112,31 @@ class Hello() {
 
 ---
 
+
+---
+### Exercice 10
+> [Lien vers la correction](corrections.md#correction-10)
+
+- Affichez le nom du héros dans un champ de formulaire.
+
+![](img/c0229.png)
+
+---
+
+---
+### Exercice 11
+> [Lien vers la correction](corrections.md#correction-11)
+
+Trouvez un moyen d'afficher le nom du héros systématiquement en majuscules grâce aux Pipes de Angular ([voir la documentation](https://angular.io/guide/pipes)).
+
+![](img/c0235.gif)
+
+---
+
 ---
 ### Exercice *
 > [Lien vers la correction](corrections.md#correction-*)
 
 ![](img/0*0*.png)
+
 ---

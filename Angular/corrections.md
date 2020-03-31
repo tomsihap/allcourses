@@ -157,9 +157,36 @@ En fait, on dit dans la méthode que `this.isActivated` (notre booléen qui sert
 
 ---
 
+
+---
+### Correction 10
+> [Lien vers l'exercice](exercices.md#exercice-10)
+
+- Il suffit de changer le champ `value` du champ input !
+- 
+![](img/c0230.png)
+
+---
+
+---
+### Correction 11
+> [Lien vers l'exercice](exercices.md#exercice-11)
+
+La solution était dans :
+- Documentation sur les Pipes : https://angular.io/guide/pipes
+- rubrique [built-in pipes](https://angular.io/guide/pipes#built-in-pipes)
+- [pipes topics](https://angular.io/api?type=pipe)
+- [UpperCasePipe](https://angular.io/api/common/UpperCasePipe)
+- Usage : `{{ value_expression | uppercase }}`
+
+![](img/c0236.png)
+
+---
+
 ---
 ### Correction *
 > [Lien vers l'exercice](exercices.md#exercice-*)
 ![](img/img.png)
-> 
+
+
 ---
