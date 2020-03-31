@@ -72,6 +72,14 @@ Résolvez les erreurs en installant les packages demandés: `jquery@1.9.1` et `p
 
 Plusieurs vulnérabilités sont indiquées par le terminal, nous les laissons de côté pour le moment !
 
+Ajoutez le style dans votre fichier `angular.json` :
+
+![](img/c0210.png)
+
+> Note: vous pouvez ajouter la version SCSS de Bootstrap (comme dans cet exemple) ou la version CSS (comme dans le cours), peu importe ! Comme nous avons choisi SCSS comme moteur CSS, il sera de toute façon compilé.
+
+> Attention: il y a deux tableaux nommés `styles` dans ce fichier là. En fait, nous n'avons pas désactivé les "tests unitaires" dans cette installation ! Du coup, vous pouvez installer les styles autant pour l'application elle même que pour la version tests unitaires. Il faut bien modifier la ligne 31 et non pas 93 (bien que modifier les 2 ne pose pas de problème).
+
 ---
 
 
