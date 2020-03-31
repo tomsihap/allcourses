@@ -61,6 +61,58 @@
 ---
 
 ---
+### Exercice 7
+> [Lien vers la correction](corrections.md#correction-7)
+
+- Créez un fichier `src/app/Hero.ts` et créez une interface qui contiendra les attributs `id` (de type `number`) et `name` (de type `string`).
+
+- Importez  l'interface dans le component `app-hero`
+
+- Remplacez le `hero` existant par un objet de type `Hero` (avec id=1)
+
+---
+
+
+---
+### Exercice 8
+> [Lien vers la correction](corrections.md#correction-8)
+
+- Affichez les données du héros créé dans le component :
+
+![](img/c0217.png)
+
+---
+
+
+---
+### Exercice 9
+> [Lien vers la correction](corrections.md#correction-9)
+
+- Créez un bouton "mettre en congé" qui, une fois cliqué, active le bouton "embaucher les héros !" :
+
+![](img/c0224.gif)
+
+Les étapes à suivre sont :
+1. Créer un bouton "Mettre en congé"
+2. Ajouter un Event Binding qui écoute le clic sur le bouton
+3. Quand on clique sur le bouton, activer une méthode
+4. Dans la méthode, modifier la valeur de `isActivated` sur son inverse (soit true, soit false)
+
+> Comment accéder à `isActivated` ? Quand on est dans une classe, on accède ou modifie ses propres attributs et méthodes avec `this.attribut` ou `this.method()`. Par exemple :
+
+```js
+class Hello() {
+    name: string = "Thomas";
+
+    sayHello() {
+        console.log( "Hello" + this.name ) !
+    }
+}
+```
+
+---
+
+---
 ### Exercice *
 > [Lien vers la correction](corrections.md#correction-*)
 

@@ -96,15 +96,70 @@ Ajoutez le style dans votre fichier `angular.json` :
 
 - Dans votre component `heroes`, ajoutez un attribut `hero` de type `string` avec pour valeur le nom de héros de votre choix :
 
-![](img/c0210.png)
+![](img/c0211.png)
 
 - Affichez ce nom de héros dans la partie HTML du component :
 
-![](img/c0211.png)
+![](img/c0212.png)
+
+
+---
+
+
+---
+### Correction 7
+> [Lien vers l'exercice](exercices.md#exercice-7)
+
+
+- Créez un fichier `src/app/Hero.ts` et créez une interface qui contiendra les attributs `id` (de type `number`) et `name` (de type `string`).
+
+![](img/c0214.png)
+
+
+- Importez l'interface dans le component `app-hero`
+
+![](img/c0215.png)
+
+- Remplacez le `hero` existant par un objet de type `Hero` (avec l'ID = 1)
+
+![](img/c0216.png)
+
+---
+
+
+---
+### Correction 8
+> [Lien vers l'exercice](corrections.md#exercice-8)
+
+- Affichez les données du héros créé dans le component :
+
+![](img/c0218.png)
+
+---
+
+
+---
+### Correction 9
+> [Lien vers l'exercice](exercices.md#exercice-9)
+
+
+1. Créer un bouton "Mettre en congé"
+2. Ajouter un Event Binding qui écoute le clic sur le bouton
+
+![](img/c0225.png)
+
+1. Quand on clique sur le bouton, activer une méthode
+2. Dans la méthode, modifier la valeur de `isActivated` sur son inverse (soit true, soit false)
+
+![](img/c0226.png)
+
+En fait, on dit dans la méthode que `this.isActivated` (notre booléen qui sert à activer ou non le bouton) doit être égal à son inverse quand j'active `onRest` !
 
 ---
 
 ---
 ### Correction *
 > [Lien vers l'exercice](exercices.md#exercice-*)
+![](img/img.png)
+> 
 ---
