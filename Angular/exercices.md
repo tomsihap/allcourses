@@ -134,6 +134,53 @@ Trouvez un moyen d'afficher le nom du héros systématiquement en majuscules gr�
 ---
 
 ---
+### Exercice 12
+> [Lien vers la correction](corrections.md#correction-12)
+
+Si le nom du héros est vide, affichez sa ligne en rouge une fois que l'on clique ailleurs (classe : `list-group-item-danger` sur le `li`) :
+
+![](img/c0318.gif)
+
+Étapes à suivre:
+- Trouvez à quel endroit ajouter la classe
+- Trouvez la condition à laquelle ajouter la classe
+
+---
+
+---
+### Exercice 13
+> [Lien vers la correction](corrections.md#correction-13)
+
+Si on clique sur "Embaucher les héros !", passer tous les héros en vert (classe: `list-group-item-success`).
+
+![](img/c0320.gif)
+
+Étapes à suivre:
+- Écouter l'évènement `click` sur le bouton
+- Le rattacher à une méthode
+- Créer un nouvel attribut dans le component faux par défaut
+- Faire en sorte que la méthode passe cet attribut sur vrai lorsqu'elle est appelée
+- Si cet attribut est sur vrai, alors mettre la classe correspondante dans les `li`
+
+---
+
+---
+### Exercice 14
+> [Lien vers la correction](corrections.md#correction-14)
+
+- Si on clique sur "Embaucher les héros !", changer le bouton en "Virer les héros !"
+- Si on clique sur "Virer les héros !" faire en  sorte qu'ils ne soient plus verts.
+
+![](img/c0323.gif)
+
+Étapes à suivre:
+- Ajouter une directive afin d'afficher le bouton dans un cas seulement
+- Créer un autre bouton qui s'affichera dans le cas inverse
+- Rattacher ce second bouton à une action qui fera l'inverse de ce que fait le premier bouton ! (le premier "embauche", le second "vire")
+---
+
+
+---
 ### Exercice *
 > [Lien vers la correction](corrections.md#correction-*)
 
