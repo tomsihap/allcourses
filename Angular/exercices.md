@@ -181,9 +181,47 @@ Si on clique sur "Embaucher les héros !", passer tous les héros en vert (class
 
 
 ---
+### Exercice 15
+> [Lien vers la correction](corrections.md#correction-15)
+
+- Créez les composants suivants :
+```
+hero
+hero-detail 
+heroes-actions
+```
+
+- Intégrez les composants entre eux aux bons endroits pour respecter cette arborescence :
+
+```
+app-root : racine de notre projet
+    heroes : liste des héros
+        hero: un seul héros
+        hero-detail : détail d'un héros
+    heroes-actions: boutons d'actions
+```
+
+> Par exemple, nous avions déjà ajouté `app-heroes` (le `heroes.component` à `app-root` (le `app.component`) de la façon suivante :
+
+![](img/c0401.png)
+
+
+---
+
+
+---
+### Exercice 16
+> [Lien vers la correction](corrections.md#correction-16)
+
+- Maintenant que vous avez envoyé le changement "Embaucher les héros" / "Virer les héros" depuis l'enfant `app-heroes-actions` vers le parent `app-root`, utilisez cette donnée pour l'envoyer à l'autre enfant `app-heroes`, de sorte à ce que `app-heroes` change les couleurs des héros quand ils sont embauchés comme avant !
+
+
+---
+
+---
 ### Exercice *
 > [Lien vers la correction](corrections.md#correction-*)
 
-![](img/0*0*.png)
+![](img/img.png)
 
 ---

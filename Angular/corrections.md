@@ -183,10 +183,56 @@ La solution était dans :
 
 ---
 
+
+---
+### Correction 12
+> [Lien vers l'exercice](exercices.md#exercice-12)
+
+![](img/c0319.png)
+
+---
+
+---
+### Correction 13
+> [Lien vers l'exercice](exercices.md#exercice-13)
+
+![](img/c0321.png)
+![](img/c0322.png)
+
+---
+
+---
+### Correction 14
+> [Lien vers l'exercice](exercices.md#exercice-14)
+
+![](img/c0324.png)
+![](img/c0325.png)
+
+---
+
+---
+### Correction 15
+> [Lien vers l'exercice](exercices.md#exercice-15)
+
+- Créez les composants :
+
+![](img/c0402.png)
+
+
+- Intégrez les composants entre eux aux bons endroits pour respecter cette arborescence :
+
+1.  Dans le `app.component`, nous ajoutons le `app-heroes-actions` pour prévoir que nous aurons un bloc concernant les héros, un bloc concernant les actions (les boutons seront déplacés dans ce nouveau component) :
+![](img/c0404.png)
+
+2. Dans le `app.heroes`, nous ajoutons `app.hero` à l'endroit où nous devrions avoir la boucle des héros (le `<li>` sera déplacé dans `app.hero`), ainsi que le `app-hero-detail` à l'endroit où on a les détails du héros (ces détails seront déplacés dans `app-hero-detail`)
+
+![](img/c0403.png)
+
+---
+
 ---
 ### Correction *
 > [Lien vers l'exercice](exercices.md#exercice-*)
 ![](img/img.png)
-
 
 ---
