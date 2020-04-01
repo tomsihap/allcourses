@@ -1,0 +1,5 @@
+<h1>Bienvenue sur {{title}}</h1>
+<h2>{{subTitle}}</h2>
+
+<app-heroes [isHireAllActivated]=isHired></app-heroes>
+<app-heroes-actions (switchHireActivated)="onSwitchHireActivated($event)"></app-heroes-actions>

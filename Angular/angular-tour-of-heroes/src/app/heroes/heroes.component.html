@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <ul class="list-group">
+
+                <app-hero></app-hero>
+
+                <li class="list-group-item"
+                    [class.active]="hero === selectedHero"
+                    [class.list-group-item-danger]="hero.name.length === 0"
+                    [class.list-group-item-success]="isHireAllActivated === true"
+                    *ngFor="let hero of heroes"
+                    (click)="onNameClick(hero)"
+                    >
+                    Héros # {{hero.id}} : {{hero.name | uppercase}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-4">
+
+                <app-hero-detail [heroToShow]="selectedHero"></app-hero-detail>
+                
+                <div class="form-group" *ngIf="selectedHero">
+                    <label for="">Nom du héros :</label>
+                    <input type="text" class="form-control" [(ngModel)]="selectedHero.name">
+                </div>
+        </div>
+        <!-- On enlève les boutons qui étaient ici ! -->
+    </div>
+</div>
