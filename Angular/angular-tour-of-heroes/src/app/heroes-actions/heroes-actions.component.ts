@@ -29,4 +29,8 @@ export class HeroesActionsComponent implements OnInit {
     this.isHireAllActivated = false;
     this.switchHireActivated.emit(false);
   }
+
+  hireButtonClass() {
+    return (this.isHireAllActivated) ? 'btn-danger' : 'btn-primary'; 
+  }
 }

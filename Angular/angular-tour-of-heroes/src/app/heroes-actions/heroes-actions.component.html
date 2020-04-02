@@ -1,15 +1,14 @@
 <div class="row">
     <div class="col my-2">
-        <button class="btn btn-primary mx-3"
-                [disabled]="!isActivated" (click)="onHireAll()"
-                *ngIf="isHireAllActivated === false">
-            Embaucher les héros !
-        </button>
-
-        <button class="btn btn-danger mx-3"
-                (click)="onFireAll()"
-                *ngIf="isHireAllActivated === true">
-            Virer les héros !
+        <button class="btn mx-3"
+                [ngClass]="{
+                    'btn-primary' : 'isHireAllActivated === false',
+                    'btn-danger' : 'isHireAllActivated === true'
+                }"
+                [disabled]="!isActivated"
+                (click)="onHireAll()"
+        >
+            {{ (isHireAllActivated) ? 'Virer les héros !' : 'Embaucher les héros !' }}
         </button>
 
         <button class="btn btn-secondary" (click)="onRest()">

@@ -12,6 +12,12 @@ export class AppComponent {
 
   isHired: boolean;
 
+  isButtonHeroesShowToggled: boolean;
+
+  toggleHeroesShow() {
+    this.isButtonHeroesShowToggled = !this.isButtonHeroesShowToggled;
+  }
+
   onSwitchHireActivated(isHired: boolean) {
     this.isHired = isHired;
   }

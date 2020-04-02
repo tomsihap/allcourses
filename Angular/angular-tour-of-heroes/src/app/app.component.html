@@ -1,5 +1,15 @@
 <h1>Bienvenue sur {{title}}</h1>
 <h2>{{subTitle}}</h2>
 
-<app-heroes [isHireAllActivated]=isHired></app-heroes>
-<app-heroes-actions (switchHireActivated)="onSwitchHireActivated($event)"></app-heroes-actions>
+<button class="btn btn-sm"
+        [ngClass]="{
+            'btn-success': isButtonHeroesShowToggled,
+            'btn-secondary': !isButtonHeroesShowToggled
+        }"
+        (click)="toggleHeroesShow()"
+>
+    {{ isButtonHeroesShowToggled ? 'Cacher la liste' : 'Afficher la liste' }}
+</button>
+
+<app-heroes [isHeroesListShow]="isButtonHeroesShowToggled"></app-heroes>
+<app-heroes-actions></app-heroes-actions>

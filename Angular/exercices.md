@@ -213,6 +213,39 @@ app-root : racine de notre projet
 ### Exercice 16
 > [Lien vers la correction](corrections.md#correction-16)
 
+Dans le `app-root`, vous allez créer un bouton qui vous permette d'afficher ou de cacher la liste de héros (le `<ul class="list-group">`) dans `app-heroes`.
+
+![](img/c0426.gif)
+
+Étapes :
+#### Dans l'enfant
+
+> L'enfant écoute une information venant du parent, il attendun attribut testant si le `<ul class="list-group">` doit s'afficher ou pas.
+1. Ajouter dans `heroes.component.ts` une variable booléenne `@Input()` qui teste si la liste est affichée ou non. Par exemple `isHeroesListShow`.
+
+2. Modifier `heroes.component.html` pour que le `<ul class="list-group">` ne s'affiche que si `isHeroesListShow` est vrai (grâce à `*ngIf`)
+
+#### Dans le parent
+> Le parent va contenir le bouton d'action et un attribut booléen qui sera envoyé à l'enfant, qui aura la donnée "est-ce que le bouton est cliqué"  et qui changera quand on clique dessus sur vrai ou faux.
+1. Créer un bouton "Afficher les héros" dans `app.component.html`
+2. Créer un attribut booléen `isButtonHeroesShowToggled` dans `app.component.ts`
+3. Ajouter une action de clic `(click)` sur le bouton dans `app.component.html` qui actionnera une méthode `toggleHeroesShow()` dans `app.component.ts`. Cette méthode va inverser la  valeur  de `isButtonHeroesShowToggled` de la classe.
+4. Ajouter une action de clic `(click)` sur le bouton dans `app.component.html` qui actionnera une méthode `toggleHeroesShow()` dans `app.component.ts`. Cette méthode va inverser la valeur  de `isButtonHeroesShowToggled` de l'attribut.
+
+#### Appeler l'enfant depuis le parent en passant la variable
+5. Dans le `app.component.html`, appelez le composant enfant `app-heroes` en lui passant la variable  qu'il attend (`[inputAttenduParLenfant]="attributDuParentàEnvoyer"`)
+
+#### Changer l'état du bouton
+Quand le bouton fonctionne, faites en sorte qu'il affiche selon s'il est cliqué ou non :
+- "afficher les héros" en bouton vert
+- "cacher les héros" en bouton gris
+
+---
+
+---
+### Exercice 17
+> [Lien vers la correction](corrections.md#correction-17)
+
 - Maintenant que vous avez envoyé le changement "Embaucher les héros" / "Virer les héros" depuis l'enfant `app-heroes-actions` vers le parent `app-root`, utilisez cette donnée pour l'envoyer à l'autre enfant `app-heroes`, de sorte à ce que `app-heroes` change les couleurs des héros quand ils sont embauchés comme avant !
 
 

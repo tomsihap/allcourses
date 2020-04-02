@@ -13,6 +13,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = HEROES;
   selectedHero: Hero;
   @Input() isHireAllActivated: boolean;
+  @Input() isHeroesListShow: boolean;
 
   constructor() { }
 
