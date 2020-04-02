@@ -1,3 +1,8 @@
+# Angular 9 : Découverte de Angular - Corrections
+> - [Retourner à la liste des cours](../readme.md)
+> - Cours : [cliquez-ici](01.md)
+> - Exercices : [cliquez-ici](exercices.md)
+
 - [Angular 9 : Découverte de Angular - Corrections](#angular-9--d%c3%a9couverte-de-angular---corrections)
       - [Correction 1](#correction-1)
       - [Correction 2](#correction-2)
@@ -23,12 +28,6 @@
       - [Changer l'état du bouton](#changer-l%c3%a9tat-du-bouton)
     - [Correction 17](#correction-17)
     - [Correction *](#correction)
-
-# Angular 9 : Découverte de Angular - Corrections
-> - [Retourner à la liste des cours](../readme.md)
-> - Cours : [cliquez-ici](01.md)
-> - Exercices : [cliquez-ici](exercices.md)
-
 
 ---
 #### Correction 1
