@@ -208,6 +208,25 @@ La solution était dans :
 ![](img/c0324.png)
 ![](img/c0325.png)
 
+Une manière plus optimale de gérer les boutons est d'en écrire plutôt qu'un seul qui aura un comportement conditionnel :
+- la classe change en fonction de `isHireAllActivated`
+- le texte du bouton change en fonction de `isHireAllActivated`
+
+Le texte conditionnel se gère dans des accolades d'interpolation (car il s'agit de texte entre deux balises) :
+![](img/c0420.png)
+
+Les classes conditionnelles se gèrent de plusieurs manières ([voir la doc](https://angular.io/api/common/NgClass)) :
+
+- soit on fait un **objet** `{}` de classes possibles selon une condition :
+![](img/c0421.png)
+
+- soit on fait un **tableau** `[]` de classes ou de fonctions retournant une classe :
+![](img/c0422.png)
+
+- en déclarant bien sûr la fonction retournant la classe dans le Typescript :
+![](img/c0423.png)
+
+
 ---
 
 ---
@@ -230,9 +249,74 @@ La solution était dans :
 
 ---
 
+
+---
+### Correction 16
+> [Lien vers l'exercice](exercices.md#exercice-16)
+
+#### Dans l'enfant
+![](img/c0428.png)
+
+#### Dans le parent
+![](img/c0424.png)
+
+#### Appeler l'enfant depuis le parent en passant la variable
+![](img/c0425.png)
+
+#### Changer l'état du bouton
+![](img/c0427.png)
+
+
+---
+
+
+---
+### Correction 17
+> [Lien vers l'exercice](exercices.md#exercice-17)
+
+Reprennons la recette du cours pour passer une donnée d'un parent à un enfant :
+> *1. Dans le TS du composant enfant, on déclare un attribut dont on a besoin pour fonctionner en `@Input attribut`*
+
+Dans notre composant enfant, nous avions besoin de l'attribut `isHireAllActivated` (il est utilisé dans le `li` du HTML pour changer la couleur des héros lorsqu'ils sont embauchés ou non). Comme cette donnée vient de l'extérieur, nous l'ajoutons en `input`.
+
+> Note: n'oubliez pas l'import de `Input` en ligne 1 !
+
+![](img/c0417.png)
+
+Ça y est, notre enfant prend maintenant en compte la variable dont il a besoin pour fonctionner. Du coup, on modifie la manière dont ce composant est appélé, dans le HTML du parent :
+> *2. Dans le HTML composant parent, on appelle notre composant enfant en lui passant l'attribut dont il a besoin pour fonctionner `<app-enfant [attribut]="valeur"></app-enfant>`*
+
+![](img/c0418.png)
+
+Le parent `app-root` envoie maintenant une donnée `isHired` à l'enfant `app-heroes`. Par contre, nous n'avons pas encore vraiment dit à quoi correspondait ce `isHired`.
+
+Voilà la logique mise en place :
+
+> Quand on clique sur le bouton...
+1. `app-heroes-actions` ENVOIE `switchHireActivated` À `app-root`
+
+
+2. `app-root` REÇOIT `$event` DE `app-heroes-actions` (il contient la valeur de `switchHireActivated`)
+
+
+3. `app-heroes` ATTEND la donnée `isHireAllActivated` venant de `app-root` pour fonctionner
+
+Pour le point 3, nous avons écrit `[isHireAllActivated]=isHired` pour remplir ce rôle. Il nous manque plus qu'à définir dans `app-root` à quoi correspond cette donnée :
+
+![](img/c0419.png)
+
+- On déclare ligne 13 notre `isHired: boolean`
+- On rédige notre méthode `onSwitchHireActivated` pour dire que `isHired` correspondà la donnée reçue de l'enfant `heroes-actions`.
+
+Et voilà !
+
+---
+
+
 ---
 ### Correction *
 > [Lien vers l'exercice](exercices.md#exercice-*)
 ![](img/img.png)
 
 ---
+
