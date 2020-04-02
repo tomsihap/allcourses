@@ -20,5 +20,6 @@ export class AppComponent {
 
   onSwitchHireActivated(isHired: boolean) {
     this.isHired = isHired;
+    console.log('event reçu de lenfant' + isHired);
   }
 }

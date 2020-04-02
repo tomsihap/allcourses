@@ -12,4 +12,5 @@
 </button>
 
 <app-heroes [isHeroesListShow]="isButtonHeroesShowToggled"></app-heroes>
-<app-heroes-actions></app-heroes-actions>
+
+<app-heroes-actions (switchHireActivated)="onSwitchHireActivated($event)"></app-heroes-actions>

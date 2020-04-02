@@ -20,14 +20,9 @@ export class HeroesActionsComponent implements OnInit {
     this.isActivated = !this.isActivated;
   }
 
-  onHireAll() {
-    this.isHireAllActivated = true;
-    this.switchHireActivated.emit(true);
-  }
-
-  onFireAll() {
-    this.isHireAllActivated = false;
-    this.switchHireActivated.emit(false);
+  onHireFireAll() {
+    this.isHireAllActivated = !this.isHireAllActivated;
+    this.switchHireActivated.emit(this.isHireAllActivated);
   }
 
   hireButtonClass() {
