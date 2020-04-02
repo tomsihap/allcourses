@@ -4,11 +4,9 @@
 > - Exercices : [cliquez-ici](exercices.md)
 
 - [Angular 9 : Découverte de Angular - Corrections](#angular-9--d%c3%a9couverte-de-angular---corrections)
-      - [Correction 1](#correction-1)
-      - [Correction 2](#correction-2)
-  - [- Relancez le serveur : `ng serve --open`](#ul-lirelancez-le-serveur--ng-serve---openli-ul)
+    - [Correction 1](#correction-1)
+    - [Correction 2](#correction-2)
     - [Correction 3](#correction-3)
-  - [> Si vous avez une erreur en rouge lors du lancement du serveur, c'est sans doute que votre précédent projet a encore son serveur qui tourne ! Coupez le serveur de l'ancien projet en allant dans son terminal et faites `ctrl+c`.](#blockquote-si-vous-avez-une-erreur-en-rouge-lors-du-lancement-du-serveur-cest-sans-doute-que-votre-pr%c3%a9c%c3%a9dent-projet-a-encore-son-serveur-qui-tourne--coupez-le-serveur-de-lancien-projet-en-allant-dans-son-terminal-et-faites-ctrlc-blockquote)
     - [Correction 4](#correction-4)
     - [Correction 5](#correction-5)
     - [Correction 6](#correction-6)
@@ -30,7 +28,7 @@
     - [Correction *](#correction)
 
 ---
-#### Correction 1
+### Correction 1
 > [Lien vers l'exercice](exercices.md#exercice-1)
 - Remarquez que nous modifions `app/tasks-list/tasks-list.component.html` !
 
@@ -39,7 +37,7 @@
 --- 
 
 ---
-#### Correction 2
+### Correction 2
 > [Lien vers l'exercice](exercices.md#exercice-2)
 - Coupez votre serveur avec `ctrl+c` pour saisir une nouvelle commande.
 - Créez un component `task` avec `ng g c task`
@@ -51,8 +49,8 @@
 
 ![](img/taskslist.png)
 
-
 - Relancez le serveur : `ng serve --open`
+
 --- 
 
 ---
@@ -71,6 +69,7 @@ Ensuite, j'ouvre mon nouveau projet dans VSCode (le bon dossier !) et je lance l
 ![](img/0302.png)
 
 > Si vous avez une erreur en rouge lors du lancement du serveur, c'est sans doute que votre précédent projet a encore son serveur qui tourne ! Coupez le serveur de l'ancien projet en allant dans son terminal et faites `ctrl+c`.
+
 ---
 
 ---
