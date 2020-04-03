@@ -11,6 +11,9 @@
     {{ isButtonHeroesShowToggled ? 'Cacher la liste' : 'Afficher la liste' }}
 </button>
 
-<app-heroes [isHeroesListShow]="isButtonHeroesShowToggled"></app-heroes>
+<app-heroes
+    [isHeroesListShow]="isButtonHeroesShowToggled"
+    [isHireAllActivated]="isHired"
+    ></app-heroes>
 
 <app-heroes-actions (switchHireActivated)="onSwitchHireActivated($event)"></app-heroes-actions>

@@ -8,7 +8,7 @@
                 <li class="list-group-item"
                     [class.active]="hero === selectedHero"
                     [class.list-group-item-danger]="hero.name.length === 0"
-                    [class.list-group-item-success]="isHireAllActivated === true"
+                    [class.list-group-item-success]="isHireAllActivated"
                     *ngFor="let hero of heroes"
                     (click)="onNameClick(hero)"
                     >
