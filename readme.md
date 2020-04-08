@@ -14,12 +14,13 @@
 > Durée : 2 jours
 - [Ionic 6 - Partie 1 : Découverte et installation de Ionic](Ionic/01.md)
 
-## Cours ElectronJS
-> Durée : 4 jours
 
 ## Cours Wordpress
 > Durée : 2 jours
-- [Wordpress - Partie 1 : Intégration]()
+ - https://gist.github.com/tomsihap/268904d9eee5fccbc6a669105a9a318e
+
+## Cours ElectronJS
+> Durée : 4 jours
 
 ## Cours Git
 > Durée : 1 jour
