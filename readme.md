@@ -26,7 +26,8 @@
 > Durée : 1 jour
 
 ## Cours SQL
-> Durée : 1 jour
+> Durée : 2 jours
+> [Commandes de base](https://gist.github.com/tomsihap/78d0c3fb0fc36239526c5a0fc6941993)
 
 ## Cours PHP
 > Durée : 5/10 jours
