@@ -27,7 +27,7 @@
 
 ## Cours SQL
 > Durée : 2 jours
-- Commandes de base](https://gist.github.com/tomsihap/78d0c3fb0fc36239526c5a0fc6941993)
+- [Commandes de base](https://gist.github.com/tomsihap/78d0c3fb0fc36239526c5a0fc6941993)
 - [Exercices sur le dataset Sakika](https://gist.github.com/tomsihap/1c496f0da611aae2ec1bdc9eca45e06f)
 ## Cours PHP
 > Durée : 5/10 jours
