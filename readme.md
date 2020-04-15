@@ -29,6 +29,7 @@
 > Durée : 2 jours
 - [Commandes de base](https://gist.github.com/tomsihap/78d0c3fb0fc36239526c5a0fc6941993)
 - [Exercices sur le dataset Sakila](https://gist.github.com/tomsihap/1c496f0da611aae2ec1bdc9eca45e06f)
+- [Cardinalités](https://github.com/tomsihap/MVC-course/blob/c3c750743213daa6e0612ef260064ae1d9feb022/_cours/MVC-06.md)
 ## Cours PHP
 > Durée : 5/10 jours
 
