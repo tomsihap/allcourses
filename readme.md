@@ -1,5 +1,9 @@
 # Cours de Thomas Sihapanya
 
+## Autres
+
+- [Livres recommandés](Random/recommanded-books.md)
+
 ## Cours Angular
 
 > Durée : 3 jours
