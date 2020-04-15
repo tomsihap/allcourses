@@ -16,7 +16,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-        <ion-img src="{{ photo.webviewPath }}"></ion-img>
+        Photo # {{position}}
+        <ion-img src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
