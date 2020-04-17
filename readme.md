@@ -37,6 +37,10 @@
 ## Cours PHP
 > Durée : 5/10 jours
 
+- [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php)
+ -  [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
+
+
 ## Cours POO
 > Durée : 3 jours
 
