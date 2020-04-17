@@ -39,7 +39,7 @@
 
 - [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php) et [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
 - [Arrays : structure, ajout d'éléments et boucles foreach](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026)
-- [Arrays: exercices 1] (https://github.com/tomsihap/php-exercices/blob/master/exercice-02-arrays/index.php)
+- [Arrays: exercices 1](https://github.com/tomsihap/php-exercices/blob/master/exercice-02-arrays/index.php)
 - [Arrays : exercices 2](https://gist.github.com/tomsihap/0ce95ee46a6b57d55144a67d68baed35)
 
 ## Cours POO
