@@ -37,9 +37,8 @@
 ## Cours PHP
 > Durée : 5/10 jours
 
-- [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php)
- -  [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
-
+- [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php) et [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
+- [Cours sur les arrays : structure, ajout d'éléments et boucles foreach](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026)
 
 ## Cours POO
 > Durée : 3 jours
