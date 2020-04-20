@@ -78,4 +78,12 @@ git commit -m "Nom du commit"
 git push
 ```
 
+## Faire des commits dans VSCode
+
+//TODO
+
+## Ignorer des fichiers avec .gitignore
+
+//TODO
+
 ## 
