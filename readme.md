@@ -37,11 +37,24 @@
 ## Cours PHP
 > Durée : 5/10 jours
 
+### Introduction: variables et conditions
 - [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php) et [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
+- [Conditions: exemples](https://github.com/tomsihap/PHP-course/blob/master/TD-01%20-%20Structures/conditions.php)
+
+### Arrays et boucles foreach
 - [Arrays : structure, ajout d'éléments et boucles foreach](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026#file-01-cours-md)
 - [Arrays: exercices 1](https://github.com/tomsihap/php-exercices/blob/master/exercice-02-arrays/index.php)
 - [Arrays: exercices 2](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026#file-02-exercices-php) et [Corrections](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026#file-03-corrige-php)
 - [Arrays: exercices 3](https://gist.github.com/tomsihap/0ce95ee46a6b57d55144a67d68baed35)
+- [Cours et excercices: arrays, boucles, conditions](https://github.com/tomsihap/PHP-course/blob/master/TD-01%20-%20Structures/exercice.md)
+- [Arrays: exemples](https://github.com/tomsihap/PHP-course/blob/master/TD-01%20-%20Structures/arrays.php)
+- [Arrays et boucles: exemples](https://github.com/tomsihap/PHP-course/blob/master/TD-01%20-%20Structures/boucles-arrays.php)
+
+### Boucles for et while
+- [Boucles for et while](https://gist.github.com/tomsihap/aa0c9f59822fb62df2983b04ba1d2b13)
+- [Boucles for et while : exercices](https://gist.github.com/tomsihap/273567c96b40f4d62b175b2b9aa2951d)
+
+### Fonctions
 
 ## Cours POO
 > Durée : 3 jours
