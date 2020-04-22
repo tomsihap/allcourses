@@ -55,6 +55,7 @@
 - [Boucles for et while : exercices](https://gist.github.com/tomsihap/273567c96b40f4d62b175b2b9aa2951d)
 
 ### Fonctions
+- [Cours, exemples, exercices](https://gist.github.com/tomsihap/a80e77745ad223b02de1053403eaa903)
 
 ## Cours POO
 > Durée : 3 jours
