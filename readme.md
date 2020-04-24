@@ -37,6 +37,8 @@
 ## Cours PHP
 > Durée : 5/10 jours
 
+- [Exercices de PHP progressifs des variables jusqu'aux fonctions + algorithmique](https://gist.github.com/tomsihap/6583f017ca858ae74d9221a51f82ba63)
+
 ### Introduction: variables et conditions
 - [Exercices 1](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-exercice-php) et [Corrections](https://gist.github.com/tomsihap/0672872f32d20b74368dab80eb9907db#file-correction-php)
 - [Conditions: exemples](https://github.com/tomsihap/PHP-course/blob/master/TD-01%20-%20Structures/conditions.php)
@@ -56,6 +58,10 @@
 
 ### Fonctions
 - [Cours, exemples, exercices](https://gist.github.com/tomsihap/a80e77745ad223b02de1053403eaa903)
+
+### Transmettre des données: GET et POST
+- [Cours et exercices sur GET](https://gist.github.com/tomsihap/b92d7ff51c564cb6c9db408fd0bc0a36)
+
 
 ## Cours POO
 > Durée : 3 jours
