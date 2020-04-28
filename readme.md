@@ -61,6 +61,7 @@
 
 ### Transmettre des données: GET et POST
 - [Cours et exercices sur GET](https://gist.github.com/tomsihap/b92d7ff51c564cb6c9db408fd0bc0a36)
+- [Cours et exercices sur POST](https://gist.github.com/tomsihap/526ba2f3193245bdc9b61ef32d7aaf94)
 
 ### PDO
 - [Récupérer des données de SQL avec SELECT (sans requête préparée)](https://gist.github.com/tomsihap/4c91b7e3048a63fd01579e37dd2af926)
