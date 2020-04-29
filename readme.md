@@ -3,6 +3,7 @@
 ## Autres
 
 - [Livres recommandés](Random/recommanded-books.md)
+- [Ressources diverses](Random/ressources.md)
 
 ## Cours Angular
 
@@ -74,9 +75,10 @@
 
 ## Cours API REST et WebServices
 > Durée : 3 jours
-
+- [Cours: WebServices et API Rest](https://github.com/tomsihap/php-api-course/blob/master/01%20-%20cours.md)
 ## Cours Symfony
 > Durée : 8/10 jours
 
 ## Cours LAMP
 > Durée  : 1 jour
+
