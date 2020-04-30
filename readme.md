@@ -29,6 +29,8 @@
 
 ## Cours Git
 > Durée : 1 jour
+- [Installer et utiliser Git](https://github.com/tomsihap/allcourses/blob/b2543928c9c83f3d47c02cd3423b5e15267533f4/Random/git.md)
+- [Exemple d'ajout d'un projet sur Github](https://github.com/tomsihap/courses/blob/4b369b829dd823946ac3f79343f4f2d7a63f1745/topics/symfony/tp01-correction.md#ajouter-le-projet-%c3%a0-git)
 
 ## Cours SQL
 > Durée : 2 jours
