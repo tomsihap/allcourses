@@ -78,7 +78,6 @@
 ### PDO
 
 - [Récupérer des données de SQL avec SELECT (sans requête préparée)](https://gist.github.com/tomsihap/4c91b7e3048a63fd01579e37dd2af926)
-
 - [TP : WF3 Zoo](https://github.com/tomsihap/wf3zoo)
 - [TP: Pokédex](https://github.com/tomsihap/crud-example-php-course)
 
