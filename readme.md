@@ -1,6 +1,26 @@
 # Cours de Thomas Sihapanya
 
-## Autres
+- [Cours de Thomas Sihapanya](#cours-de-thomas-sihapanya)
+  - [Général](#g%c3%a9n%c3%a9ral)
+  - [Cours Angular](#cours-angular)
+  - [Cours Ionic](#cours-ionic)
+  - [Cours Wordpress](#cours-wordpress)
+  - [Cours Electron](#cours-electron)
+  - [Cours Git](#cours-git)
+  - [Cours SQL](#cours-sql)
+  - [Cours PHP](#cours-php)
+    - [Introduction: variables et conditions](#introduction-variables-et-conditions)
+    - [Arrays et boucles foreach](#arrays-et-boucles-foreach)
+    - [Boucles for et while](#boucles-for-et-while)
+    - [Fonctions](#fonctions)
+    - [Transmettre des données: GET et POST](#transmettre-des-donn%c3%a9es-get-et-post)
+    - [PDO](#pdo)
+  - [Cours POO](#cours-poo)
+  - [Cours API REST et WebServices](#cours-api-rest-et-webservices)
+  - [Cours Symfony](#cours-symfony)
+  - [Cours LAMP](#cours-lamp)
+
+## Général
 
 - [Livres recommandés](Random/recommanded-books.md)
 - [Ressources diverses](Random/ressources.md)
