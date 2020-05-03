@@ -26,7 +26,7 @@
 
 ## Cours Electron
 > Durée : 3 jours
-> - [# Electron JS 1 - Première application, electron.app et BrowserWindow](ElectronJS/01.md)
+> - [Electron JS 1 - Première application, electron.app et BrowserWindow](ElectronJS/01.md)
 
 ## Cours Git
 
