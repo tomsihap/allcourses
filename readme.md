@@ -24,8 +24,9 @@
 > Durée : 2 jours
  - https://gist.github.com/tomsihap/268904d9eee5fccbc6a669105a9a318e
 
-## Cours ElectronJS
-> Durée : 4 jours
+## Cours Electron
+> Durée : 3 jours
+> - [# Electron JS 1 - Première application, electron.app et BrowserWindow](ElectronJS/01.md)
 
 ## Cours Git
 > Durée : 1 jour
@@ -69,6 +70,8 @@
 
 - [TP : WF3 Zoo](https://github.com/tomsihap/wf3zoo)
 
+### Upload de fichiers et manipulation d'images
+- [Upload de fichiers]
 
 ## Cours POO
 > Durée : 3 jours
