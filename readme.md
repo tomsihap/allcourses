@@ -47,6 +47,7 @@
 ## Cours Electron
 > Durée : 3 jours
 > - [Electron JS 1 - Première application, electron.app et BrowserWindow](ElectronJS/01.md)
+> - [TP : Créer une application de médiathèque](ElectronJS/02.md)
 
 ## Cours Git
 
