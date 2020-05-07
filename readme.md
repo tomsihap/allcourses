@@ -48,7 +48,7 @@
 > Durée : 3 jours
 > - [Electron JS 1 - Première application, electron.app et BrowserWindow](ElectronJS/01.md)
 > - [TP : Créer une application de médiathèque](ElectronJS/02.md)
-> - [Examen blanc: ElectronZoo](ElectronJS/03.md)
+> - [Examen blanc: ElectronZoo](ElectronJS/03.md) (corrigé de l'examen blanc ici : https://github.com/tomsihap/electron-zoo)
 > - [Exam : ElectronImmo](ElectronJS/04.md)
 ## Cours Git
 
