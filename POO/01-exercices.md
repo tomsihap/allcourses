@@ -47,7 +47,7 @@ Le nom du personnage est XXX (il possède une force de YYY et une résistance de
 > La correction inclus le code commenté avec les *annotations* PHPDoc :
 
 ```php
-
+<?php
 /**
  * Représente un Personnage ayant un nom (obligatoire), une force et une résistance.
  */
@@ -180,7 +180,7 @@ var_dump($padmee->getNameAndSpecs());
 # Typage de paramètres : `?int`, `?int = 42`, `int = null` ?
 
 ```php
-
+<?php
 /**
  * Soit :
  *  - un integer que je précise explicitement (int)
