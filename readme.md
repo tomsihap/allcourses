@@ -108,6 +108,9 @@
 
 > Durée : 3 jours
 
+- [Notions de POO : classes et objets](POO/01-cours.md)
+- [Notions de POO : classes et objets - exercices](POO/01-exercices.md)
+
 ## Cours API REST et WebServices
 
 > Durée : 3 jours
