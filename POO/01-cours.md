@@ -4,6 +4,7 @@
 ## Déclarer une classe
 
 ```php
+<?php
 class MyClass {
 
     /**
@@ -41,6 +42,7 @@ class MyClass {
 ## Instancier une classe (= créer un objet d'une classe) et utiliser les objets
 
 ```php
+<?php
 // Après que la classe ait été déclarée...
 $newObject = new MyClass;
 
@@ -57,6 +59,7 @@ $newObject->activateSayHello();
 > Deux objets d'une même classe sont forcément différents, même si elles ont accès aux mêmes attributs et méthodes :
 
 ```php
+<?php
 $newObject2 = new MyClass;
 $newObject2->attr1 = "Nouvelle valeur";
 $newObject2->activateSayHello();
@@ -71,6 +74,7 @@ $newObject3->activateSayHello();
 > Le constructeur est activé au moment du mot-clé `new` :
 
 ```php
+<?php
 class MyClass2 {
     public function __construct() {
         var_dump('Le constructeur a été appelé.');
@@ -84,6 +88,7 @@ $newObject4 = new MyClass2;
 > Le constructeur permet de demander des paramètres à l'instanciation de la classe :
 
 ```php
+<?php
 class MyClass3 {
     public function __construct($param1, $param2) {
         var_dump('Le constructeur a été appelé avec les paramètres suivants : ' . $param1 . ' et ' . $param2);
@@ -98,6 +103,7 @@ C'est utile pour donner des paramètres obligatoires à une classe.
 ## Exemple: `Table`
 
 ```php
+<?php
 class Table {
     /**
      * Attributs (variables de classe)
