@@ -1,6 +1,6 @@
 # PHP - POO : TP
 
-> Vous allez créer un projet en version MVC (Model Vue Controller), qui sera une application de gestion d'animaux pour un zoo !
+> Vous allez créer un projet en version MVC (Model Vue Controller), qui sera une application de gestion d'animaux pour des zoos !
 
 > Une table Animal listera plusieurs espèces d'animaux, une table Zoo listera des zoos. Une table de jointure `animal_zoo` fera le lien entre les deux.
 
