@@ -130,7 +130,6 @@ Sinon... il y a sans doute un bug ailleurs !
 
 ### Utiliser le router
 
-
 On peut tester dans notre `index.php` quelques routes :
 
 ```php
@@ -159,3 +158,64 @@ $router->run();
 - Créez une route `/conditions` qui affiche `Voici les conditions d'utilisation.`
 
 - Créez une route qui prend en paramètres un ID et qui afficherait : `voici l'article numéro 3` quand je tappe `/articles/3` par exemple.
+
+- Améliorez la route ci-dessus pour n'accepter que des `INT`.
+
+- Créez la route `/product/***` qui prend en paramètres une string contenant uniquement des nombres, lettres ou tiret `-` (par exemple : `/product/new-shoes-2020`) et qui affiche `Voici le produit demandé: ****`.
+
+## Utiliser l'autoloader de Composer pour nos propres classes
+
+Comme Composer fournit son autoloader, lequel est plutôt puissant et respecte de bonnes conventions PHP (voir [PSR-4](https://www.php-fig.org/psr/psr-4/)), nous pouvons l'utiliser plutôt que le notre !
+
+Pour cela, nous devons respecter une convention : toutes nos classes doivent avoir un **namespace**, c'est à dire un chemin virtuel déclaré dans la classe, qui corresponde au dossier dans lequel la classe se trouve. Ça permettra à l'autoloader de trouver nos classes facilement et ça permet de respecter une convention de code connue de tous, pour organiser son projet proprement.
+
+### 1. Déclarer à Composer l'emplacement de nos classes
+
+1. Modifiez la structure de fichiers de la façon suivante (les dossiers sont maintenant au singulier, on verra pourquoi juste ensuite) :
+
+```
+src/model
+src/controller
+```
+
+2. Déclarez l'emplacement de nos classes à Composer en modifiant le `package.json` ainsi:
+
+
+```json
+{
+    "require": {
+        "bramus/router": "^1.4",
+        "symfony/var-dumper": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    }
+}
+```
+
+On indique ici que le namespace `App` correspondra au dossier `src` (ce qui est une convention de code pour indiquer "l'endroit où se trouve mes classes", que ce soit `src` pour nous, `lib` pour d'autres...).
+
+3. Modifiez vos classes existantes pour leur donner un namespace (le chemin virtuel). Pour le moment, nous n'avons que des Models, ajoutez en haut du fichier (en ligne 2) la ligne suivante :
+
+```php
+<?php
+
+namespace App\Model;
+
+class Animal {
+    // ...
+}
+```
+
+
+Et voilà ! Pour tester :
+
+1. Allez dans `index.php`
+2. Mettez en commentaire l'import de `config.php` pour ne plus utiliser l'ancien autoloader
+3. Réindexez le workspace avec Intelephense
+4. Essayez : `$animal = new Animal`. L'autocomplétion devrait fonctionner et ajouter la ligne `use` en haut de `index.php`.
