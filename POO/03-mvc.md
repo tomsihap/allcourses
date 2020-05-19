@@ -267,3 +267,7 @@ $router->get('/animaux', function () {
 ```
 
 Voilà, nous avons déplacé la logique depuis la fonction anonyme vers un fichier dédié, le controller.
+
+### Exercice
+
+- Créez une route vers `/articles/***`, qui appelle `ArticlesController@show` et qui affiche le numéro de l'article.
