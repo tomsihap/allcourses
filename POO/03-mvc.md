@@ -352,3 +352,99 @@ Lorsque vous créérez des routes correspondant à un model, vous utiliserez sys
 2. Importez ce fichier dans `index.php`
 3. Retirez les routes de `index.php` et rédigez dorénavant vos routes dans ce nouveau fichier dédié
 4. Créez toutes les routes standards vus au chapitre précédent et controllers pour `Animal`, `Zoo` et `AnimalZoo`.
+
+
+## Affichage : gestion des vues
+
+Maintenant que nos routes fonctionnent et que nos controllers les gèrent, nous pouvons travailler sur la partie View : l'affichage du HTML.
+
+Les vues peuvent être de simples fichiers HTML appelés avec `include` depuis le controller, néanmoins nous allons travailler avec un outil puissant: un moteur de template, Twig.
+
+Twig nous permet plusieurs choses :
+
+- Avoir du code logique facilement rédigé dans le HTML plutôt que d'y placer du PHP :
+
+*Avant* :
+
+```php
+
+<h1>Bienvenue sur le site. Votre email est : <?= $user->getEmail() ?> !</h1>
+
+<ul>
+    <?php foreach ($users as $user) : ?>
+        <li><?= $user->getFirstname() ?></li>
+    <?php endforeach; >
+</ul>
+```
+
+*Après* :
+```twig
+<h1>Bienvenue sur le site. Votre email est : {{ user.email }} !</h1>
+
+<ul>
+    {% for user in users %}
+        <li>{{ user.firstname }}</li>
+    {% endfor %}
+</ul>
+```
+
+- utiliser le système de templating de Twig, qui nous permet d'avoir un modèle de page de base et d'y insérer ce que l'on veut en fonction de la page à afficher :
+
+*page de base commune à toutes les pages* 
+
+`base.html` :
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="nav justify-content-center">
+      <a class="nav-link active" href="#">Active link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#">Disabled link</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+```
+
+*une page en particulier* :
+
+```twig
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>Bienvenue sur le site. Votre email est : {{ user.email }} !</h1>
+
+    <ul>
+        {% for user in users %}
+            <li>{{ user.firstname }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock body %}
+```
+
+- avoir une gestion des fichiers et du système de templating plus globale que des simples `include` dont on doit saisir le chemin du fichier à chaque fois
+
+- un développement facilité du front-end pour les développeurs non experts en back-end ou en PHP...
+
+### Exercice
+
+- En suivant [la documentation de Twig](https://twig.symfony.com/doc/3.x/), installez Twig et essayez d'afficher du HTML via Twig. dans la page `/animaux`.
+- Faites de même pour la page `/animaux/{id}` en affichant dans la page l'ID de l'animal.
