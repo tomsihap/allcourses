@@ -271,3 +271,84 @@ Voilà, nous avons déplacé la logique depuis la fonction anonyme vers un fichi
 ### Exercice
 
 - Créez une route vers `/articles/***`, qui appelle `ArticlesController@show` et qui affiche le numéro de l'article.
+
+
+## Créer les routes de CRUD/BREAD généralistes
+
+Dans la même logique que les routes d'une API REST, nous allons concevoir notre application avec des points d'entrées (les routes) prévisibles et standards :
+
+
+Méthode | Route | Action
+---------|----------|---------
+ GET  | `/articles`     | lire tous les articles
+ GET  | `/articles/id`  | lire un article
+ POST | `/articles`     | créer un article
+ PUT    | `/articles/id`  | éditer un article
+ DELETE  | `/articles/id`  | supprimer un article
+
+
+Comme nous sommes dans une application web qui va également gérer de l'affichage et non pas seulement dans une API, nous allons rajouter quelques routes :
+
+Méthode | Route | Action | Ajoutée
+---------|----------|---------|---------
+ GET  | `/articles`     | lire tous les articles | 
+ GET  | `/articles/id`  | lire un article | 
+ GET  | `/articles/create` | formulaire de création d'article | *
+ POST | `/articles`     | créer un article | 
+ GET  | `/articles/id/edit` | formulaire de création d'article | *
+ PUT    | `/articles/id`  | éditer un article | 
+ DELETE  | `/articles/id`  | supprimer un article | 
+
+
+Puis, comme nous avons une application web en HTML qui sera lue par un navigateur et que [la spécification de HTML5 n'autorise que GET et POST](https://stackoverflow.com/a/166501/3489447), nous allons "convertir" nos méthodes HTTP plus exotiques en uniquement GET et POST :
+
+Méthode | Route | Action | Changée
+---------|----------|---------|---------
+ GET  | `/articles`     | lire tous les articles | 
+ GET  | `/articles/id`  | lire un article | 
+ GET  | `/articles/create` | formulaire de création d'article |
+ POST | `/articles`     | créer un article | 
+ GET  | `/articles/id/edit` | formulaire de création d'article |
+ POST    | `/articles/id`  | éditer un article | *
+ POST  | `/articles/id`  | supprimer un article | *
+
+Enfin, on voit qu'on a du coup des routes ayant les même méthodes et URI (`POST /articles/id`). Ce qui va nous poser problème ! Modifions une dernière fois ces routes pour les rendres uniques (mais plus complètement RESTful) :
+
+
+Méthode | Route | Action | Modifiée
+---------|----------|---------|---------
+ GET  | `/articles`     | lire tous les articles | 
+ GET  | `/articles/id`  | lire un article | 
+ GET  | `/articles/create` | formulaire de création d'article |
+ POST | `/articles`     | créer un article | 
+ GET  | `/articles/id/edit` | formulaire de création d'article |
+ POST    | `/articles/id/edit`  | éditer un article | *
+ POST  | `/articles/id/delete`  | supprimer un article | *
+
+
+Voilà notre liste de routes de CRUD ! Ce dernier tableau est important : c'est la liste des routes que vous aurez systématiquement pour toutes vos tables (vous pouvez bien sûr en supprimer (si vous n'avez pas besoin de *edit* par exemple) ou en ajouter (si vous avez des affichages particuliers, des moteurs de recherche...)).
+
+## Rattacher nos routes à des controllers
+
+Nos routes étant décidées, nous pouvons les faire correspondre à des méthodes de controller. En général, ce seront :
+
+Méthode HTTP+Route | Controller + méthode | Modifiée
+---------|----------|---------|---------
+`GET  /articles`            | `ArticlesController::index()` | Affiche la liste des articles |
+`GET  /articles/id`         | `ArticlesController::show(int $id)` | Affiche l'article `$id` |
+`GET  /articles/create`     | `ArticlesController::create()` | Formulaire de création d'articles qui envoie en POST |
+`POST /articles`            | `ArticlesController::new()` | Créée un article grâce aux données `$_POST` |
+`GET  /articles/id/edit`    | `ArticlesController::edit(int $id)` | Formulaire d'édition d'articles qui envoie en POST |
+`POST /articles/id/edit`    | `ArticlesController::update()` | Édite un article grâce aux données `$_POST` |
+`POST /articles/id/delete`  | `ArticlesController::delete($id)` | Supprime un article reçu par `$_POST`|
+
+On peut remarquer que les noms de méthodes sont assez similaires aux noms de fichiers que nous avions dans du PHP procédural.
+
+Lorsque vous créérez des routes correspondant à un model, vous utiliserez systématiquement le schéma ci-dessus : ça vous permettra d'avoir des controllers tous identiques, ce qui augmente la lisibilité et la maintenabilité du code.
+
+### Exercice : créer les routes pour Animal, Zoo et AnimalZoo
+
+1. Créez un fichier `config/routes.php`
+2. Importez ce fichier dans `index.php`
+3. Retirez les routes de `index.php` et rédigez dorénavant vos routes dans ce nouveau fichier dédié
+4. Créez toutes les routes standards vus au chapitre précédent et controllers pour `Animal`, `Zoo` et `AnimalZoo`.
