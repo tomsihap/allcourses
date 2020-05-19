@@ -42,6 +42,13 @@ Voilà ! Quelle que soit l'URL saisie, nous tomberons toujours sur `index.php`.
 
 ## Le routeur + Composer
 
+### Prérequis VSCode !
+
+- Pour que VSCode puisse récupérer correctement les librairies installées avec Composer, vous devez **désinstaller** toutes les extensions relatives à PHP que vous avez (elles risquent de faire des conflits), et n'installer que l'extension `PHP Intelephense` (attention, par `PHP Intellisense`).
+
+
+### Installer le router
+
 Plutôt que de développer notre propre routeur, nous allons plutôt utiliser une librairie existante et éprouvée, en l'important grâce à Composer.
 
 Étapes :
@@ -104,6 +111,25 @@ $router = new \Bramus\Router\Router(); // on va plutôt l'utiliser avec l'auto-c
 // Run it!
 $router->run();
 ```
+
+### Attention: comment débuguer si les classes ne s'auto-complètent pas !
+
+- Si VSCode ne trouve pas une classe avec l'autocomplétion, vous pouvez :
+  - `ctrl+shift+p`
+  - chercher: "index workspace`
+  - cliquer sur `intelephense: index workspace`
+  
+Si le bug persiste, saisissez dans la console :
+
+```
+composer clear-cache
+composer dump-autoload
+```
+
+Sinon... il y a sans doute un bug ailleurs !
+
+### Utiliser le router
+
 
 On peut tester dans notre `index.php` quelques routes :
 
