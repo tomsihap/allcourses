@@ -219,3 +219,24 @@ Et voilà ! Pour tester :
 2. Mettez en commentaire l'import de `config.php` pour ne plus utiliser l'ancien autoloader
 3. Réindexez le workspace avec Intelephense
 4. Essayez : `$animal = new Animal`. L'autocomplétion devrait fonctionner et ajouter la ligne `use` en haut de `index.php`.
+
+Si tout fonctionne, vous pouvez supprimer ou commenter le bloc `spl_autoload_register()` que nous avions auparavant créé dans `config.php`.
+
+## Créer des controllers
+
+Maintenant que nos classes sont autoloadés, on va créer des controllers.
+
+
+1. Créez la classe `ArticlesController` dans le dossier `controller` et donnez lui le namespace `App\Controller`.
+
+2. Créez un méthode statique `public static function index()`
+   
+3. Dans cette méthode, faites un echo de "voici la liste des articles".
+
+4. Dans le router, créez la route suivante (en faisant attention à bien auto-compléter `ArticlesController` !)
+
+```php
+$router->get('/articles', ArticlesController::index());
+```
+
+Voilà, nous avons déplacé la logique depuis la fonction anonyme vers un fichier dédié, le controller.
