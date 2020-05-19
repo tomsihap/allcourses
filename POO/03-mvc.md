@@ -332,8 +332,8 @@ Voilà notre liste de routes de CRUD ! Ce dernier tableau est important : c'est 
 
 Nos routes étant décidées, nous pouvons les faire correspondre à des méthodes de controller. En général, ce seront :
 
-Méthode HTTP+Route | Controller + méthode | Modifiée
----------|----------|---------|---------
+Méthode HTTP+Route | Controller+méthode | Modifiée
+---------|----------|---------|
 `GET  /articles`            | `ArticlesController::index()` | Affiche la liste des articles |
 `GET  /articles/id`         | `ArticlesController::show(int $id)` | Affiche l'article `$id` |
 `GET  /articles/create`     | `ArticlesController::create()` | Formulaire de création d'articles qui envoie en POST |
