@@ -333,14 +333,14 @@ Voilà notre liste de routes de CRUD ! Ce dernier tableau est important : c'est 
 Nos routes étant décidées, nous pouvons les faire correspondre à des méthodes de controller. En général, ce seront :
 
 Méthode HTTP+Route | Controller+méthode | Modifiée
----------|----------|---------|
-`GET  /articles`            | `ArticlesController::index()` | Affiche la liste des articles |
-`GET  /articles/id`         | `ArticlesController::show(int $id)` | Affiche l'article `$id` |
-`GET  /articles/create`     | `ArticlesController::create()` | Formulaire de création d'articles qui envoie en POST |
-`POST /articles`            | `ArticlesController::new()` | Créée un article grâce aux données `$_POST` |
-`GET  /articles/id/edit`    | `ArticlesController::edit(int $id)` | Formulaire d'édition d'articles qui envoie en POST |
-`POST /articles/id/edit`    | `ArticlesController::update()` | Édite un article grâce aux données `$_POST` |
-`POST /articles/id/delete`  | `ArticlesController::delete($id)` | Supprime un article reçu par `$_POST`|
+---------|----------|---------
+`GET  /articles`            | `ArticlesController::index()` | Affiche la liste des articles
+`GET  /articles/id`         | `ArticlesController::show(int $id)` | Affiche l'article `$id`
+`GET  /articles/create`     | `ArticlesController::create()` | Formulaire de création d'articles qui envoie en POST
+`POST /articles`            | `ArticlesController::new()` | Créée un article grâce aux données `$_POST`
+`GET  /articles/id/edit`    | `ArticlesController::edit(int $id)` | Formulaire d'édition d'articles qui envoie en POST
+`POST /articles/id/edit`    | `ArticlesController::update()` | Édite un article grâce aux données `$_POST`
+`POST /articles/id/delete`  | `ArticlesController::delete($id)` | Supprime un article reçu par `$_POST`
 
 On peut remarquer que les noms de méthodes sont assez similaires aux noms de fichiers que nous avions dans du PHP procédural.
 
