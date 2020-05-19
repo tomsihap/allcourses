@@ -137,4 +137,72 @@ Importer manuellement nos classes peut rapidement être contraignant ! Heureusem
 
 **Exercice 1 :** Trouvez un moyen, grâce à la fonction `spl_autoload_register`, de charger automatiquement les classes situées dans `src/models` depuis `config.php`, sans utiliser les `require` (vous pouvez les supprimer).
 
+**Correction :**
+```php
+// config.php
+
+// On déclare une fonction que l'on veut voir s'exéctuer quand on utilise le mot clé "new"
+// Cette fonction prendrait le nom de la classe appelée avec "new" et ferait un require du fichier
+// correspondant.
+function myClassLoader($className) {
+    require __DIR__ . '/../src/' . $className . '.php';
+}
+
+// On passe la fonction en paramètres de spl_autoload_register(), qui est une fonction PHP qui 
+// déclanche la fonction passée en paramètres (ici : myClassLoader()) justement... au moment où 
+// on exécute le mot clé "new" !
+spl_autoload_register('myClassLoader');
+
+
+// Autre manière d'écrire l'autoloader, avec une fonction anonyme :
+spl_autoload_register(function ($className) {
+    require __DIR__ . '/../src/models/' . $className . '.php';
+});
+
+```
+
 **Exercice 2:** Améliorez `spl_autoload_register` pour récupérer des classes qui pourraient aussi être situées dans `src/controllers`.
+
+**Correction :**
+
+```php
+// config.php
+const FOLDERS = [
+    'controllers',
+    'models'
+];
+
+spl_autoload_register(function ($class) {
+
+    foreach(FOLDERS as $folder) {
+        $file =  __DIR__ . '/../src/'. $folder .'/' . $class . '.php';
+
+        if (file_exists($file)) {
+                include $file;
+        }
+    }
+});
+```
+
+#### Comment fonctionne `spl_autoload_register` ?
+
+Quand une classe est appelée avec le mot clé `new` (par exemple: `$animal = new Animal`), si une fonction `spl_autoload_register()` a été déclarée (c'est le cas pour nous dans `config.php`), elle sera exécutée.
+
+Cette fonction prend en paramètres une... fonction ! Quand on a une fonction en paramètres, on peut l'appeler de deux façons différentes en PHP :
+
+- En la nommant directement dans la fonction qui attend un paramètre :
+```php
+function sayHello() {
+    echo "hello world";
+}
+
+spl_autoload_register('a');
+```
+
+- En passant une *fonction anonyme*, c'est à dire une fonction qui n'existe qu'au moment où on l'écrit (elle n'a pas de nom), dans la fonction qui attend un paramètre :
+
+```php
+spl_autoload_register(function(){
+    echo "hello world";
+});
+```
