@@ -233,10 +233,37 @@ Maintenant que nos classes sont autoloadés, on va créer des controllers.
    
 3. Dans cette méthode, faites un echo de "voici la liste des articles".
 
-4. Dans le router, créez la route suivante (en faisant attention à bien auto-compléter `ArticlesController` !)
+4. Dans le router, créez la route suivante :
+```php
+$router->get('/articles', 'ArticlesController@index');
+```
+
+> Note : on met la méthode entre guillemets car c'est une fonction de *callback* (ou fonction de rappel), c'est à dire une fonction prise en paramètres par une autre fonction (la fonction `->get()`). Si elle n'était pas mise entre parenthèses, elle aurait été exécutée dans tous les cas à la lecture de `index.php` (donc en allant sur n'importe quelle route !)
+
+5. Comme notre classe `ArticlesController` est utilisée dans des guillemets, elle n'est plus auto-complétée et mettre un `use App\Controller\ArticlesController` ne fonctionnera pas non plus. On doit indiquer au routeur quel est le namespace dans lequel chercher les controllers. Modifiez `index.php` ainsi :
 
 ```php
-$router->get('/articles', ArticlesController::index());
+$router = new Router();
+$router->setNamespace('App\Controller');
+```
+
+
+>  Note : d'autres manières d'appeler le controller :
+
+```php
+
+// Mauvaise manière (la méthode index() serait appelée à chaque fois qu'on irait sur index.php)
+$router->get('/animaux', ArticlesController::index());
+
+// En nommant la fonction de callback :
+$router->get('/animaux', 'ArticlesController@index');
+
+// En appelant la méthode dans une fonction anonyme :
+$router->get('/animaux', function () {
+    // Pensez à autocompléter ArticlesController
+    ArticlesController::index()
+});
+
 ```
 
 Voilà, nous avons déplacé la logique depuis la fonction anonyme vers un fichier dédié, le controller.
