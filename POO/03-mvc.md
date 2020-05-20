@@ -760,6 +760,14 @@ public static function getTwig() {
 <script src="{{ assets ~ '/js/app.js' }}"></script>
 ```
 
+5. On peut également créer des liens absolus vers n'importe quelle route grâce à la variable `base_path` également incluse :
+
+```html
+<a href="{{ base_path }}">page d'accueil</a>
+<a href="{{ base_path ~ '/animal' }}">liste des animaux</a>
+<a href="{{ base_path ~ '/animal/create' }}">liste des animaux</a>
+```
+
 ### Exercices
 
 Créez les pages suivantes :
