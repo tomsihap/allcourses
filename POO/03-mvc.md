@@ -32,19 +32,23 @@
       - [1. Page d'affichage des animaux](#1-page-daffichage-des-animaux)
         - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller)
         - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view)
-        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur)
+        - [c. Créer la **view** avec des fausses données en dur](#c-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur)
       - [2. Page de formulaire de création d'un animal](#2-page-de-formulaire-de-cr%c3%a9ation-dun-animal)
         - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-1)
         - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-1)
-        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-1)
+        - [c. Créer la **view** avec des fausses données en dur](#c-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-1)
+        - [d. Récupérer les données dans `POST /animal` : créer la route](#d-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-animal--cr%c3%a9er-la-route)
+        - [e. Récupérer les données dans `POST /animal` : gérer les données](#e-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-animal--g%c3%a9rer-les-donn%c3%a9es)
       - [3. Page d'affichage des zoos](#3-page-daffichage-des-zoos)
         - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-2)
         - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-2)
-        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-2)
+        - [c. Créer la **view** avec des fausses données en dur](#c-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-2)
       - [4. Page de formulaire de création d'un zoo](#4-page-de-formulaire-de-cr%c3%a9ation-dun-zoo)
         - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-3)
         - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-3)
-        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-3)
+        - [c. Créer la **view** avec des fausses données en dur](#c-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-3)
+        - [d. Récupérer les données dans `POST /zoo` : créer la route](#d-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-zoo--cr%c3%a9er-la-route)
+        - [e. Récupérer les données dans `POST /zoo` : gérer les données](#e-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-zoo--g%c3%a9rer-les-donn%c3%a9es)
 
 ## Présentation de MVC
 
@@ -820,7 +824,7 @@ class AnimalController extends AbstractController {
     // ...
 ```
 
-##### b. Créer la **view** avec des fausses données en dur
+##### c. Créer la **view** avec des fausses données en dur
 
 ```html
 <!-- dans animal/index.html -->
@@ -870,7 +874,7 @@ class AnimalController extends AbstractController {
     // ...
 ```
 
-##### b. Créer la **view** avec des fausses données en dur
+##### c. Créer la **view** avec des fausses données en dur
 
 ```html
 <!-- dans animal/create.html -->
@@ -900,6 +904,28 @@ class AnimalController extends AbstractController {
 {% endblock %}
 ```
 
+##### d. Récupérer les données dans `POST /animal` : créer la route
+
+```php
+// routes.php
+$router->post('/animal', 'AnimalController@new');
+```
+
+##### e. Récupérer les données dans `POST /animal` : gérer les données
+
+```php
+// AnimalController.php
+<?php
+namespace App\Controller;
+
+class AnimalController extends AbstractController {
+
+    // ...
+    public static function new() {
+        var_dump($_POST);
+    }
+    // ...
+```
 
 #### 3. Page d'affichage des zoos
 
@@ -925,7 +951,7 @@ class ZooController extends AbstractController {
     // ...
 ```
 
-##### b. Créer la **view** avec des fausses données en dur
+##### c. Créer la **view** avec des fausses données en dur
 
 ```html
 <!-- dans zoo/index.html -->
@@ -949,7 +975,6 @@ class ZooController extends AbstractController {
 
 {% endblock %}
 ```
-
 
 
 #### 4. Page de formulaire de création d'un zoo
@@ -977,7 +1002,7 @@ class ZooController extends AbstractController {
     // ...
 ```
 
-##### b. Créer la **view** avec des fausses données en dur
+##### c. Créer la **view** avec des fausses données en dur
 
 ```html
 <!-- dans zoo/create.html -->
@@ -1005,4 +1030,28 @@ class ZooController extends AbstractController {
 
     </form>
 {% endblock %}
+```
+
+
+##### d. Récupérer les données dans `POST /zoo` : créer la route
+
+```php
+// routes.php
+$router->post('/zoo', 'ZooController@new');
+```
+
+##### e. Récupérer les données dans `POST /zoo` : gérer les données
+
+```php
+// ZooController.php
+<?php
+namespace App\Controller;
+
+class ZooController extends AbstractController {
+
+    // ...
+    public static function new() {
+        var_dump($_POST);
+    }
+    // ...
 ```
