@@ -51,6 +51,7 @@
         - [e. Récupérer les données dans `POST /zoo` : gérer les données](#e-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-zoo--g%c3%a9rer-les-donn%c3%a9es)
   - [Communiquer avec la base de données](#communiquer-avec-la-base-de-donn%c3%a9es)
     - [Créer le `AbstractModel`](#cr%c3%a9er-le-abstractmodel)
+    - [Définir les constantes pour configurer la BDD](#d%c3%a9finir-les-constantes-pour-configurer-la-bdd)
     - [Hériter du AbstractModel dans nos Models](#h%c3%a9riter-du-abstractmodel-dans-nos-models)
     - [Créer des méthodes dédiées à la base de données](#cr%c3%a9er-des-m%c3%a9thodes-d%c3%a9di%c3%a9es-%c3%a0-la-base-de-donn%c3%a9es)
     - [Utiliser le Model dans le Controller](#utiliser-le-model-dans-le-controller)
@@ -1104,6 +1105,23 @@ Il s'agit du même PDO que nous avons déjà utilisé, mais avec plusieurs const
 - `DB_DSN, DB_USERNAME, DB_PASSWORD` : ce sont des constantes que nous définirons dans `config.php` et qui contiendront nos identifiants de base de données.
 - `PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION` : permet de  configurer PDO pour  qu'il affiche les erreurs SQL
 - `PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC` : permet de forcer les `fetch` et `fetchAll` à être en mode `FETCH_ASSOC` (retourne un tableau associatif des données de la base de données)
+
+### Définir les constantes pour configurer la BDD
+
+Dans `config.php` :
+
+```php
+<?php
+// config.php
+
+const BASE_PATH = "http://localhost:8888/lab/POO/wf3-490-mvc/";
+
+const DB_DSN = 'mysql:dbname=wf3zoomvc;host=localhost;port=8889;charset=utf8';
+const DB_USERNAME = 'root';
+const DB_PASSWORD = 'root';
+```
+
+> On a ajouté à ce fichier la configuration de PDO. Adaptez bien sûr toutes ces données à votre configuration !
 
 ### Hériter du AbstractModel dans nos Models
 
