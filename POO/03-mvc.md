@@ -1,5 +1,31 @@
 # POO: MVC
-
+- [POO: MVC](#poo-mvc)
+  - [Présentation de MVC](#pr%c3%a9sentation-de-mvc)
+  - [URL Rewriting](#url-rewriting)
+  - [Le routeur + Composer](#le-routeur--composer)
+    - [Prérequis VSCode !](#pr%c3%a9requis-vscode)
+    - [Installer le router](#installer-le-router)
+    - [Composer : gestion de versions](#composer--gestion-de-versions)
+    - [Composer : mise à jour des packages](#composer--mise-%c3%a0-jour-des-packages)
+  - [Utiliser le router](#utiliser-le-router)
+    - [Attention: comment débuguer si les classes ne s'auto-complètent pas !](#attention-comment-d%c3%a9buguer-si-les-classes-ne-sauto-compl%c3%a8tent-pas)
+    - [Utiliser le router](#utiliser-le-router-1)
+    - [Exercices](#exercices)
+  - [Utiliser l'autoloader de Composer pour nos propres classes](#utiliser-lautoloader-de-composer-pour-nos-propres-classes)
+    - [1. Déclarer à Composer l'emplacement de nos classes](#1-d%c3%a9clarer-%c3%a0-composer-lemplacement-de-nos-classes)
+  - [Créer des controllers](#cr%c3%a9er-des-controllers)
+    - [Exercice](#exercice)
+  - [Créer les routes de CRUD/BREAD généralistes](#cr%c3%a9er-les-routes-de-crudbread-g%c3%a9n%c3%a9ralistes)
+  - [Rattacher nos routes à des controllers](#rattacher-nos-routes-%c3%a0-des-controllers)
+    - [Exercice : créer les routes pour Animal, Zoo et AnimalZoo](#exercice--cr%c3%a9er-les-routes-pour-animal-zoo-et-animalzoo)
+  - [Affichage : gestion des vues](#affichage--gestion-des-vues)
+    - [Exercice](#exercice-1)
+    - [Correction + optimisation](#correction--optimisation)
+  - [Utiliser Twig](#utiliser-twig)
+    - [Cas 1 : Vues sans variables](#cas-1--vues-sans-variables)
+    - [Cas 2 : Vues avec variables](#cas-2--vues-avec-variables)
+    - [Héritage de templates avec Twig](#h%c3%a9ritage-de-templates-avec-twig)
+  - [Créer une page d'accueil](#cr%c3%a9er-une-page-daccueil)
 ## Présentation de MVC
 
 Sur la suite du projet préparé lors du [TP01](01-cours.md) (et [exercices](01-exercices.md)) et du [TP02](02-exercices.md), nous allons développer un projet en MVC.
