@@ -49,6 +49,13 @@
         - [c. Créer la **view** avec des fausses données en dur](#c-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-3)
         - [d. Récupérer les données dans `POST /zoo` : créer la route](#d-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-zoo--cr%c3%a9er-la-route)
         - [e. Récupérer les données dans `POST /zoo` : gérer les données](#e-r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-post-zoo--g%c3%a9rer-les-donn%c3%a9es)
+  - [Communiquer avec la base de données](#communiquer-avec-la-base-de-donn%c3%a9es)
+    - [Créer le `AbstractModel`](#cr%c3%a9er-le-abstractmodel)
+    - [Hériter du AbstractModel dans nos Models](#h%c3%a9riter-du-abstractmodel-dans-nos-models)
+    - [Créer des méthodes dédiées à la base de données](#cr%c3%a9er-des-m%c3%a9thodes-d%c3%a9di%c3%a9es-%c3%a0-la-base-de-donn%c3%a9es)
+    - [Utiliser le Model dans le Controller](#utiliser-le-model-dans-le-controller)
+    - [Créer des objets](#cr%c3%a9er-des-objets)
+    - [Récupérer les données dans la vue](#r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-la-vue)
 
 ## Présentation de MVC
 
@@ -1055,3 +1062,209 @@ class ZooController extends AbstractController {
     }
     // ...
 ```
+
+## Communiquer avec la base de données
+
+Notre MVC est quasiment complet :
+1. Nous avons utilisé router afin d'appeler les controllers en fonction de la page demandée par l'utilisateur
+2. Nous avons créé des controllers pour gérer les pages demandées
+3. Nous alons créé des views qui ont été appelées par les controllers, pour afficher les pages
+
+Il nous manque la partie Model, qui est en charge de la gestion des données en base de données.
+
+Nos Models sont déjà quasiment prêts (`model/Animal.php`, `model/AnimalZoo.php`, `model/Zoo.php`). Ils savent représenter un élément de la base de données (grâce aux attributs et aux setters). Ils ne savent pas encore récupérer et enregistrer ces éléments-là depuis et dans la base de données, on va donc les améliorer.
+
+Comme pour les Controllers, qui ont tous besoin de `Twig`, nos Models ont tous besoin de `PDO`. De la même manière, on va faire une classe parente de laquelle tous nos Models devront hériter. Cette classe va justement créer une instance de PDO qui sera du coup disponible dans tous nos Models grâce à l'héritage.
+
+### Créer le `AbstractModel` 
+
+Comme c'est une classe abstraite (une classe qui ne peut pas être instanciée, généralement parce qu'elle ne fait que de l'héritage), appelons notre classe parente `AbstractModel`. Créez le fichier suivant :
+
+```php
+<?php
+// src/model/AbstractModel.php
+
+namespace App\Model;
+
+use PDO;
+
+abstract class AbstractModel {
+
+    public static function getPdo() {
+        return new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
+    }
+}
+```
+
+Il s'agit du même PDO que nous avons déjà utilisé, mais avec plusieurs constantes :
+
+- `DB_DSN, DB_USERNAME, DB_PASSWORD` : ce sont des constantes que nous définirons dans `config.php` et qui contiendront nos identifiants de base de données.
+- `PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION` : permet de  configurer PDO pour  qu'il affiche les erreurs SQL
+- `PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC` : permet de forcer les `fetch` et `fetchAll` à être en mode `FETCH_ASSOC` (retourne un tableau associatif des données de la base de données)
+
+### Hériter du AbstractModel dans nos Models
+
+Héritez de `AbstractModel` dans les fichiers suivants :
+
+```php
+// Animal.php
+class Animal extends AbstractModel { /**/ }
+
+// AnimalZoo.php
+class AnimalZoo extends AbstractModel { /**/ }
+
+// Zoo.php
+class Zoo extends AbstractModel { /**/ }
+```
+
+### Créer des méthodes dédiées à la base de données
+
+Tout comme nos controllers ont accès à Twig grâce à leur parent, nos modèles ont maintenant accès à une instance de PDO, grâce à `self::getPdo();`.
+
+Le rôle des Model étant de communiquer avec la BDD, créons dans `Animal.php` une méthode permettant de récupérer les données.
+
+> Cette méthode sera plus tard appelée depuis la classe elle même et non pas depuis des objets, on la créée donc statique.
+
+```php
+<?php
+
+class Animal extends AbstractModel {
+
+    // ...
+
+    /**
+     * Retourne la liste des animaux en BDD
+     */
+    public static function findAll() {
+        
+        $bdd = self::getPdo();
+
+        $query = "SELECT * FROM Animal";
+        $response = $bdd->prepare($query);
+        $response->execute();
+
+        $data = $response->fetchAll();
+
+        return $data;
+    }
+}
+```
+
+Nous avons maintenant une méthode qui appelle PDO et qui récupère les données en BDD.
+
+### Utiliser le Model dans le Controller
+
+Comme ce code avec PDO est enfin créé, on a plus qu'à appeler la méthode `findAll()` pour récupérer nos données !
+
+```php
+// AnimalController.php
+
+public static function index() {
+    $animaux = Animal::findAll();
+
+    var_dump($animaux);
+
+    echo self::getTwig()->render('animal/index.html');
+}
+```
+
+En allant sur `/animal`, vous devriez avoir un var_dump qui affiche les animaux qui existent en base de données.
+
+### Créer des objets
+
+Néanmoins, on voit dans le var_dump que les données retournées sont des arrays associatifs. Nous souhaiterions plutôt créer des objets de la classe `Animal` afin de profiter des setters et getters.
+
+Les étapes à suivre sont :
+
+1. On récupère les données de PDO (c'est déjà fait)
+2. On fait un `foreach()` sur le tableau de données retourné par PDO
+3. Dans le `foreach()`, on créée des objets Animal avec les données de PDO
+
+Pour nous faciliter la lecture du code, on créée une fonction `toObject($array)` qui transforme un array en un objet Animal.
+
+```php
+// Animal.php
+public static function findAll() {
+    $pdo = self::getPdo();
+
+    $query = 'select * from animal';
+
+    $response = $pdo->prepare($query);
+    $response->execute();
+
+    $data = $response->fetchAll();
+
+    // On prépare le tableau qui contiendra nos animaux en format Object
+    $dataAsObjects = [];
+
+    // On fait un foreach de $data (données de la bdd) pour transformer chaque data en un object
+    // puis on met l'object dans le tableau $dataAsObjects
+    foreach($data as $d) {
+        $dataAsObjects[] = self::toObject($d);
+    }
+
+    return $dataAsObjects;
+}
+
+/**
+    * Transforme un array de données de la table Animal en un objet Animal
+    */
+public static function toObject($array) {
+
+    $animal = new Animal;
+    $animal->setId($array['id']);
+    $animal->setSpecies($array['species']);
+    $animal->setCountry($array['country']);
+
+    return $animal;
+
+} 
+```
+
+### Récupérer les données dans la vue
+
+Normalement, le var_dump dans `/animal` devrait vous afficher des objets de type Animal ! Voyons comment les utiliser dans la vue.
+
+Modifions un peu notre controller de sorte à envoyer la variable `$animaux` à la vue :
+
+```php
+// AnimalController.php
+
+public static function index() {
+    $animaux = Animal::findAll();
+
+    echo self::getTwig()->render('animal/index.html', [
+        'animaux' => $animaux
+    ]);
+}
+```
+
+Ainsi, la page `index.html` aura accès au tableau d'objects `animaux`.
+
+Modifions donc la vue pour afficher ces données dans une boucle Twig :
+
+`views/animal/index.html` :
+
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <a href="{{ base_path }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la page d'accueil</a>
+    <br>
+    <a class="btn btn-primary" href="{{ base_path ~ '/animal/create' }}">Créer un animal</a>
+
+
+    <h1>Liste des animaux</h1>
+
+    {% for animal in animaux %}
+        <div class="alert alert-secondary">{{ animal.species }} (origine: {{ animal.country }})</div>
+    {% endfor %}
+
+{% endblock %}
+```
+
+Et voilà ! Vous remarquerez que nous pouvons faire `animal.species` : en fait, Twig va chercher `getSpecies` lorsqu'il voit un objet, de sorte à systématiquement utiliser les getters.
