@@ -448,3 +448,162 @@ Twig nous permet plusieurs choses :
 
 - En suivant [la documentation de Twig](https://twig.symfony.com/doc/3.x/), installez Twig et essayez d'afficher du HTML via Twig. dans la page `/animaux`.
 - Faites de même pour la page `/animaux/{id}` en affichant dans la page l'ID de l'animal.
+
+### Correction + optimisation
+
+1. Créez une classe `AbstractController` dans `src/controller` :
+
+```php
+<?php
+
+namespace App\Controller;
+
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+abstract class AbstractController {
+
+    public static function getTwig() {
+        $loader = new FilesystemLoader(__DIR__ . '/../../views');
+        $twig = new Environment($loader);
+
+        return $twig;
+    }
+
+}
+```
+
+2. Faites hériter **tous** les autres controllers de l'AbstractController :
+
+```php
+// AnimalController.php
+class AnimalController extends AbstractController { /* ... */ }
+
+// AnimalZooController.php
+class AnimalZooController extends AbstractController { /* ... */ }
+
+// ZooController.php
+class ZooController extends AbstractController { /* ... */ }
+```
+
+## Utiliser Twig
+
+### Cas 1 : Vues sans variables
+
+Par exemple, pour la page `AnimalController@index` (accessible par la route `/animal` d'après le router) :
+
+1. On appelle la vue :
+```php
+// AnimalController.php
+// ...
+
+public static function index() {
+    echo self::getTwig()->render('animal/index.html');
+}
+```
+
+> On appelle la méthode statique `getTwig()` qui est déclarée dans le parent, sur laquelle on utilise la méthode `render` qui permet d'afficher un fichier HTML situé dans le dossier `views`. Ici, on demande donc l'affichage de `/views/animal/index.html`.
+
+2. On créée la vue :
+
+Dans `views/animal/index.html` :
+```html
+<h1>Bienvenue sur la page d'accueil des animaux !</h1>
+```
+
+3. Testez en allant sur la route correspondante (ici : `/animal`).
+
+
+### Cas 2 : Vues avec variables
+
+On peut passer des variables à la vue ( = le HTML), par exemple l'ID de l'animal pour la page show :
+
+```php
+// AnimalController.php
+// ...
+
+public static function show($id) {
+        echo self::getTwig()->render('animal/show.html', [
+            'idanimal' => $id
+        ]);
+    }
+```
+
+Dans `views/animal/show.html` :
+
+```html
+<h1>Vous affichez la page de l'animal numéro {{ idanimal }}.</h1>
+```
+
+> Si on regarde le tableau de variables dans le PHP, `['idanimal' => $id]` :
+> - `idanimal` est le nom de la variable au sein du fichier HTML (on l'appelle comme on veut)
+> - `$id` est la variable issue du PHP que l'on veut envoyer au fichier HTML
+
+
+### Héritage de templates avec Twig
+
+On peut définir un template de base qui s'appliquera à toutes nos pages, pour éviter de répéter le header, footer, sidebar... par exemple.
+
+1. Créez le fichier suivant :
+
+Dans `/views/base.html` :
+
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>WF3 Zoo : MVC version</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+</html>
+```
+
+> Remarquez qu'on déclare en langage Twig un "bloc" `{% block content %}{% endblock %}`, c'est une ancre qui permet d'indiquer où se situera le code spécifique de chaque page héritant de ce fichier `base.html`.
+
+2. Éditez `animal/index.html` et `animal/show.html` de la façon suivante :
+
+Dans `animal/index.html` :
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Bienvenue sur la liste des animaux</h1>
+{% endblock %}
+```
+
+Dans `animal/show.html` :
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Bienvenue sur la page de l'animal dont l'ID est {{ idanimal }}.</h1>
+{% endblock %}
+```
