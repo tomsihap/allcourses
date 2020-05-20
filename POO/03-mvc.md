@@ -942,7 +942,7 @@ class AnimalController extends AbstractController {
 
 ```php
 // routes.php
-$router->get('/zoos', 'ZooController@index');
+$router->get('/zoo', 'ZooController@index');
 ```
 
 ##### b. Dans le **controller**, appeller la **view**
