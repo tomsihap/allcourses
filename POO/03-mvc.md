@@ -57,6 +57,7 @@
     - [Utiliser le Model dans le Controller](#utiliser-le-model-dans-le-controller)
     - [Créer des objets](#cr%c3%a9er-des-objets)
     - [Récupérer les données dans la vue](#r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-la-vue)
+    - [Exercice](#exercice-2)
 
 ## Présentation de MVC
 
@@ -1286,3 +1287,7 @@ Modifions donc la vue pour afficher ces données dans une boucle Twig :
 ```
 
 Et voilà ! Vous remarquerez que nous pouvons faire `animal.species` : en fait, Twig va chercher `getSpecies` lorsqu'il voit un objet, de sorte à systématiquement utiliser les getters.
+
+### Exercice
+1. Faites de même pour afficher la liste des zoos.
+2. Pour le module `Animal`: Faites une méthode `create()` dans le Model qui enregistrera les données dans la base de données, et que vous appelerez dans `AnimalController::new()` pour stocker les données issues de `$_POST`.
