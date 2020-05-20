@@ -58,6 +58,10 @@
     - [Créer des objets](#cr%c3%a9er-des-objets)
     - [Récupérer les données dans la vue](#r%c3%a9cup%c3%a9rer-les-donn%c3%a9es-dans-la-vue)
     - [Exercice](#exercice-2)
+  - [Enregistrer des données en base de données](#enregistrer-des-donn%c3%a9es-en-base-de-donn%c3%a9es)
+    - [Créer la méthode `store()`](#cr%c3%a9er-la-m%c3%a9thode-store)
+    - [Appeler la méthode `store()` depuis le controller](#appeler-la-m%c3%a9thode-store-depuis-le-controller)
+    - [Rediriger vers l'index des animaux](#rediriger-vers-lindex-des-animaux)
 
 ## Présentation de MVC
 
@@ -1291,3 +1295,59 @@ Et voilà ! Vous remarquerez que nous pouvons faire `animal.species` : en fait, 
 ### Exercice
 1. Faites de même pour afficher la liste des zoos.
 2. Pour le module `Animal`: Faites une méthode `create()` dans le Model qui enregistrera les données dans la base de données, et que vous appelerez dans `AnimalController::new()` pour stocker les données issues de `$_POST`.
+
+## Enregistrer des données en base de données
+
+### Créer la méthode `store()`
+
+Dans le model `Animal`, créons la méthode `store()` (cette fois non statique car elle va s'appliquer à un objet, pas à classe elle-même, elle enregistre un objet *Animal*, tandis que `findAll()` s'appliquait plutôt à la classe elle-même, elle va chercher *tous* les animaux).
+
+```php
+// Animal.php
+
+/**
+* Enregistre l'objet lui-même en base de données
+*/
+public function store() {
+
+    $pdo = self::getPdo();
+
+    $query = 'INSERT INTO animal(species, country) VALUES (:species, :country)';
+
+    $response = $pdo->prepare($query);
+    $response->execute([
+        'species' => $this->getSpecies(),
+        'country' => $this->getCountry()
+    ]);
+
+    return true;
+}
+```
+
+### Appeler la méthode `store()` depuis le controller
+
+Dans le controller, dans la méthode `new()` de traitement du formulaire :
+
+```php
+public static function new() {
+    $animal = new Animal;
+    $animal->setCountry($_POST['country']);
+    $animal->setSpecies($_POST['species']);
+    $animal->store();
+}
+```
+
+### Rediriger vers l'index des animaux
+
+Maintenant que l'animal est enregistré, on redirige vers la page d'index des animaux. Pour cela, on va simplement appeler la méthode chargée d'ouvrir la page :
+
+```php
+public static function new() {
+    $animal = new Animal;
+    $animal->setCountry($_POST['country']);
+    $animal->setSpecies($_POST['species']);
+    $animal->store();
+
+    self::index(); // on appelle la méthode statique index() de notre controller
+}
+```
