@@ -26,6 +26,7 @@
     - [Cas 2 : Vues avec variables](#cas-2--vues-avec-variables)
     - [Héritage de templates avec Twig](#h%c3%a9ritage-de-templates-avec-twig)
   - [Créer une page d'accueil](#cr%c3%a9er-une-page-daccueil)
+  - [Importer des assets (images, CSS, JS) avec Twig](#importer-des-assets-images-css-js-avec-twig)
 ## Présentation de MVC
 
 Sur la suite du projet préparé lors du [TP01](01-cours.md) (et [exercices](01-exercices.md)) et du [TP02](02-exercices.md), nous allons développer un projet en MVC.
@@ -693,4 +694,64 @@ public static function index() {
 {% block content %}
 <h1>Bienvenue sur la page d'accueil.</h1>
 {% endblock %}
+```
+
+## Importer des assets (images, CSS, JS) avec Twig
+
+Pour avoir une bonne gestion des assets sans soucis de chemins relatifs, on va trouver un moyen d'indiquer le chemin absolu vers le projet à Twig.
+
+0. Créez l'arborescence de fichiers suivante pour stocker vos assets :
+
+```
+/wf3-zoo-mvc
+    /assets
+        /js
+        /css
+        /img
+```
+
+1. Dans `index.php`, importez `config.php`  :
+
+Dans `index.php` :
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/config/config.php';
+require __DIR__ . '/config/routes.php';
+```
+
+2. Ajoutez une constante dans `config.php` qui devrait être vide (attention, l'ancien autoloader qui s'y trouvait devrait être supprimé ou commenté):
+
+Dans `config.php` :
+
+```php
+<?php
+
+const BASE_PATH = "http://localhost:8888/lab/POO/wf3-490-mvc/";
+```
+
+> Il s'agit de VOTRE chemin vers votre dossier de projet ! On déclare une constante avec ce chemin.
+
+3. On indique à Twig une variable `assets` qui contiendra le chemin vers le dossier `assets` :
+
+Dans `AbstractController.php`, ajoutez une globale `assets` qui sera accessible dans tous les templates, et qui contiendra le chemin vers le dossier d'assets :
+
+```php
+public static function getTwig() {
+    $loader = new FilesystemLoader(__DIR__ . '/../../views');
+    $twig = new Environment($loader);
+    $twig->addGlobal('assets',  BASE_PATH . '/assets' );
+
+    return $twig;
+}
+```
+
+4. On utilise notre nouvelle variable dans le HTML pour importer des assets !
+
+```html
+<img src="{{ assets ~ '/img/image.png' }}" alt="">
+<link rel="stylesheet" href="{{ assets ~ '/css/style.css' }}">
+<script src="{{ assets ~ '/js/app.js' }}"></script>
 ```
