@@ -540,6 +540,20 @@ Dans `views/animal/show.html` :
 > - `$id` est la variable issue du PHP que l'on veut envoyer au fichier HTML
 
 
+> **Note : ** remarquez que dans le dossier `views`, les fichiers sont classés ainsi :
+
+```
+/views
+    /nomDuModule
+        nomDeLaMethode.html
+
+/views
+    /animal
+        index.html
+        show.html
+        ...
+```
+
 ### Héritage de templates avec Twig
 
 On peut définir un template de base qui s'appliquera à toutes nos pages, pour éviter de répéter le header, footer, sidebar... par exemple.
@@ -605,5 +619,52 @@ Dans `animal/show.html` :
 
 {% block content %}
     <h1>Bienvenue sur la page de l'animal dont l'ID est {{ idanimal }}.</h1>
+{% endblock %}
+```
+
+## Créer une page d'accueil
+
+1. C'est un nouveau point d'entrée de l'application ! On créée donc une nouvelle route :
+
+```php
+// routes.php
+
+$router->get('/', 'AppController@index');
+
+```
+
+> Comme cette page fait partie des pages relatives à l'application (comme "contact", "CGV", "à propos"...), on peut imaginer un controller nommé `AppController` pour ce genre de pages. Le nom est libre.
+
+2. On créée le controller et la méthode dédiée (ne pas oublier l'héritage de `AbstractController`) :
+
+```php
+// src/controller/AppController.php
+
+<?php
+
+namespace App\Controller;
+
+class AppController extends AbstractController {
+
+    public static function index() { }
+
+}
+```
+
+3. On appelle Twig pour faire le rendu d'une page HTML :
+
+```php
+public static function index() {
+    echo self::getTwig()->render('app/index.html');
+}
+```
+
+4. On créée enfin `views/app/index.html` :
+
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bienvenue sur la page d'accueil.</h1>
 {% endblock %}
 ```
