@@ -29,6 +29,22 @@
   - [Importer des assets (images, CSS, JS) avec Twig](#importer-des-assets-images-css-js-avec-twig)
     - [Exercices](#exercices-1)
     - [Correction](#correction)
+      - [1. Page d'affichage des animaux](#1-page-daffichage-des-animaux)
+        - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller)
+        - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view)
+        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur)
+      - [2. Page de formulaire de création d'un animal](#2-page-de-formulaire-de-cr%c3%a9ation-dun-animal)
+        - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-1)
+        - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-1)
+        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-1)
+      - [3. Page d'affichage des zoos](#3-page-daffichage-des-zoos)
+        - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-2)
+        - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-2)
+        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-2)
+      - [4. Page de formulaire de création d'un zoo](#4-page-de-formulaire-de-cr%c3%a9ation-dun-zoo)
+        - [a. Créer la **route** qui appelle le **controller**](#a-cr%c3%a9er-la-route-qui-appelle-le-controller-3)
+        - [b. Dans le **controller**, appeller la **view**](#b-dans-le-controller-appeller-la-view-3)
+        - [b. Créer la **view** avec des fausses données en dur](#b-cr%c3%a9er-la-view-avec-des-fausses-donn%c3%a9es-en-dur-3)
 
 ## Présentation de MVC
 
@@ -777,5 +793,216 @@ Créez les pages suivantes :
 - Une page d'affichage des zoos (avec des fausses données pour le moment)
 - Une page de formulaire pour créer un zoo, qui envoie le formulaire à `POST /zoo`. La méthode qui traite le formulaire doit faire un `var_dump()` de `$_POST` pour bien récupérer les données.
 
+
 ### Correction
 
+#### 1. Page d'affichage des animaux
+
+##### a. Créer la **route** qui appelle le **controller**
+
+```php
+// routes.php
+$router->get('/animal', 'AnimalController@index');
+```
+
+##### b. Dans le **controller**, appeller la **view**
+
+```php
+// AnimalController.php
+<?php
+namespace App\Controller;
+
+class AnimalController extends AbstractController {
+
+    public static function index() {
+        echo self::getTwig()->render('animal/index.html');
+    }
+    // ...
+```
+
+##### b. Créer la **view** avec des fausses données en dur
+
+```html
+<!-- dans animal/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <a href="{{ base_path }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la page d'accueil</a>
+    <br>
+    <a class="btn btn-primary" href="{{ base_path ~ '/animal/create' }}">Créer un animal</a>
+
+
+    <h1>Liste des animaux</h1>
+
+    <div class="alert alert-secondary">Tigre (origine: Birmanie)</div>
+    <div class="alert alert-secondary">Lion (origine: Danemark)</div>
+    <div class="alert alert-secondary">Gazelle (origine: Israel)</div>
+    <div class="alert alert-secondary">Lynx (origine: Roumanie)</div>
+    <div class="alert alert-secondary">Éléphant (origine: Thaïlande)</div>
+
+{% endblock %}
+```
+
+
+#### 2. Page de formulaire de création d'un animal
+
+##### a. Créer la **route** qui appelle le **controller**
+
+```php
+// routes.php
+$router->get('/animal/create', 'AnimalController@index');
+```
+
+##### b. Dans le **controller**, appeller la **view**
+
+```php
+// AnimalController.php
+<?php
+namespace App\Controller;
+
+class AnimalController extends AbstractController {
+
+    // ...
+    public static function create() {
+        echo self::getTwig()->render('animal/create.html');
+    }
+    // ...
+```
+
+##### b. Créer la **view** avec des fausses données en dur
+
+```html
+<!-- dans animal/create.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{{ base_path ~ '/animal'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste des animaux</a>
+
+<h1>Créer un animal :</h1>
+
+<form action="{{ base_path ~ '/animal'}}" method="post">
+
+    <div class="form-group">
+        <label for="">Espèce de l'animal: </label>
+        <input type="text" class="form-control" placeholder="Éléphant" name="species">
+    </div>
+
+    <div class="form-group">
+        <label for="">Pays d'origine : </label>
+        <input type="text" class="form-control" placeholder="Thailande" name="country">
+    </div>
+
+    <button class="btn btn-success">Créer un animal</button>
+
+</form>
+{% endblock %}
+```
+
+
+#### 3. Page d'affichage des zoos
+
+##### a. Créer la **route** qui appelle le **controller**
+
+```php
+// routes.php
+$router->get('/zoos', 'ZooController@index');
+```
+
+##### b. Dans le **controller**, appeller la **view**
+
+```php
+// ZooController.php
+<?php
+namespace App\Controller;
+
+class ZooController extends AbstractController {
+
+    public static function index() {
+        echo self::getTwig()->render('zoo/index.html');
+    }
+    // ...
+```
+
+##### b. Créer la **view** avec des fausses données en dur
+
+```html
+<!-- dans zoo/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{{ base_path }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la page d'accueil</a>
+
+<br>
+
+<a class="btn btn-primary" href="{{ base_path ~ '/zoo/create' }}">Créer un zoo</a>
+
+<h1>Liste des zoos</h1>
+
+<div class="alert alert-secondary">Alexandria Zoo (lieu: Alexandria)</div>
+<div class="alert alert-secondary">Tsimbazaza Zoo (lieu: Antananarivo)</div>
+<div class="alert alert-secondary">Seoul Grand Park Zoo (lieu: (Gwacheon)</div>
+<div class="alert alert-secondary">Chiang Mai Zoo (lieu: Chiang Mai)</div>
+<div class="alert alert-secondary">Parc de la tête d'or (lieu: Lyon)</div>
+
+{% endblock %}
+```
+
+
+
+#### 4. Page de formulaire de création d'un zoo
+
+##### a. Créer la **route** qui appelle le **controller**
+
+```php
+// routes.php
+$router->get('/zoo/create', 'ZooController@index');
+```
+
+##### b. Dans le **controller**, appeller la **view**
+
+```php
+// ZooController.php
+<?php
+namespace App\Controller;
+
+class ZooController extends AbstractController {
+
+    // ...
+    public static function create() {
+        echo self::getTwig()->render('zoo/create.html');
+    }
+    // ...
+```
+
+##### b. Créer la **view** avec des fausses données en dur
+
+```html
+<!-- dans zoo/create.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <a href="{{ base_path ~ '/zoo'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste des zoos</a>
+
+    <h1>Créer un zoo :</h1>
+
+    <form action="{{ base_path ~ '/zoo'}}" method="post">
+
+        <div class="form-group">
+            <label for="">Nom du zoo: </label>
+            <input type="text" class="form-control" placeholder="Parc de la tête d'or" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="">Ville du zoo: </label>
+            <input type="text" class="form-control" placeholder="Lyon" name="city">
+        </div>
+
+        <button class="btn btn-success">Créer un zoo</button>
+
+    </form>
+{% endblock %}
+```
