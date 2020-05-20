@@ -27,6 +27,9 @@
     - [Héritage de templates avec Twig](#h%c3%a9ritage-de-templates-avec-twig)
   - [Créer une page d'accueil](#cr%c3%a9er-une-page-daccueil)
   - [Importer des assets (images, CSS, JS) avec Twig](#importer-des-assets-images-css-js-avec-twig)
+    - [Exercices](#exercices-1)
+    - [Correction](#correction)
+
 ## Présentation de MVC
 
 Sur la suite du projet préparé lors du [TP01](01-cours.md) (et [exercices](01-exercices.md)) et du [TP02](02-exercices.md), nous allons développer un projet en MVC.
@@ -743,6 +746,7 @@ public static function getTwig() {
     $loader = new FilesystemLoader(__DIR__ . '/../../views');
     $twig = new Environment($loader);
     $twig->addGlobal('assets',  BASE_PATH . '/assets' );
+    $twig->addGlobal('base_path',  BASE_PATH);
 
     return $twig;
 }
@@ -755,3 +759,15 @@ public static function getTwig() {
 <link rel="stylesheet" href="{{ assets ~ '/css/style.css' }}">
 <script src="{{ assets ~ '/js/app.js' }}"></script>
 ```
+
+### Exercices
+
+Créez les pages suivantes :
+- Une page d'affichage des animaux (avec des fausses données pour le moment)
+- Une page de formulaire pour créer un animal, qui envoie le formulaire à `POST /animal`. La méthode qui traite le formulaire doit faire un `var_dump()` de `$_POST` pour bien récupérer les données.
+
+- Une page d'affichage des zoos (avec des fausses données pour le moment)
+- Une page de formulaire pour créer un zoo, qui envoie le formulaire à `POST /zoo`. La méthode qui traite le formulaire doit faire un `var_dump()` de `$_POST` pour bien récupérer les données.
+
+### Correction
+
