@@ -112,6 +112,7 @@
 - [Notions de POO : classes et objets - exercices](POO/01-exercices.md)
 - [TP POO 2](POO/02-exercices.md)
 - [TP POO 3 - MVC](POO/03-mvc.md)
+- [Examen WF3](POO/examwf3/01.md)
 
 ## Cours API REST et WebServices
 
