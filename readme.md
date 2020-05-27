@@ -1,7 +1,7 @@
 # Cours de Thomas Sihapanya
 
 - [Cours de Thomas Sihapanya](#cours-de-thomas-sihapanya)
-  - [Général](#g%c3%a9n%c3%a9ral)
+  - [Général](#général)
   - [Cours Angular](#cours-angular)
   - [Cours Ionic](#cours-ionic)
   - [Cours Wordpress](#cours-wordpress)
@@ -13,7 +13,7 @@
     - [Arrays et boucles foreach](#arrays-et-boucles-foreach)
     - [Boucles for et while](#boucles-for-et-while)
     - [Fonctions](#fonctions)
-    - [Transmettre des données: GET et POST](#transmettre-des-donn%c3%a9es-get-et-post)
+    - [Transmettre des données: GET et POST](#transmettre-des-données-get-et-post)
     - [PDO](#pdo)
   - [Cours POO](#cours-poo)
   - [Cours API REST et WebServices](#cours-api-rest-et-webservices)
@@ -126,7 +126,7 @@
 - [Cours (old)](https://gist.github.com/tomsihap/99b7ad51257721ee9c96bd2d95db504f)
 - [Cours](https://gist.github.com/tomsihap/7e5063a12f6bab1d3af035e15698f48a)
 - [TP: NotaResto + correction](https://gist.github.com/tomsihap/e939150d64b25c7b4010c847a3e77d48)
-- [TP: API avec Symfony](https://gist.github.com/tomsihap/9f4d7e63c8f32292895c001a9aef1e8b)
+- [TP: API avec Symfony (exercices + correction)](Symfony/API-course.md)
 
 ## Cours LAMP
 
