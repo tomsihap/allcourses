@@ -124,7 +124,7 @@
 > Durée : 8/10 jours
 
 - [Cours (old)](https://gist.github.com/tomsihap/99b7ad51257721ee9c96bd2d95db504f)
-- [Cours](https://gist.github.com/tomsihap/7e5063a12f6bab1d3af035e15698f48a)
+- [Cours complet](Symfony/complete-course.md)
 - [TP: NotaResto + correction](https://gist.github.com/tomsihap/e939150d64b25c7b4010c847a3e77d48)
 - [TP: API avec Symfony (exercices + correction)](Symfony/API-course.md)
 
