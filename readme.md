@@ -76,7 +76,7 @@
 - [PHP Bases 04 - Fonctions](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-04-fonctions.md)
 - PHP Bases 05 - Arrays :
   - [le cours résumé](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026#file-01-cours-md)
-- [les exercices](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-05-tableaux.md)
+  - [les exercices](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-05-tableaux.md)
 
 #### Jour 2
 - [PHP avancé 01 : paramètres d'URL (GET)](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-06-parametres-url.md)
