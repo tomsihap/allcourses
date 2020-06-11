@@ -8,6 +8,10 @@
   - [Cours Electron](#cours-electron)
   - [Cours Git](#cours-git)
   - [Cours SQL](#cours-sql)
+  - [Mise à niveau PHP (#HB-CDA)](#mise-à-niveau-php-hb-cda)
+      - [Jour 1](#jour-1)
+      - [Jour 2](#jour-2)
+      - [Jours 3 et 4](#jours-3-et-4)
   - [Cours PHP](#cours-php)
     - [Introduction: variables et conditions](#introduction-variables-et-conditions)
     - [Arrays et boucles foreach](#arrays-et-boucles-foreach)
@@ -63,11 +67,32 @@
 - [Exercices sur le dataset Sakila](https://gist.github.com/tomsihap/1c496f0da611aae2ec1bdc9eca45e06f)
 - [Cardinalités](https://github.com/tomsihap/MVC-course/blob/c3c750743213daa6e0612ef260064ae1d9feb022/_cours/MVC-06.md)
 
-## Cours PHP
+## Mise à niveau PHP (#HB-CDA)
+#### Jour 1
+- [Intro : installation et configuration de PHP](https://github.com/tomsihap/PHP-course/blob/master/TD-00%20-%20Setup/exercice.md)
+- [PHP Bases 01 - Variables](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-01-variables.md)
+- [PHP Bases 02 - Conditions](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-02-conditions.md)
+- [PHP Bases 03 - Boucles](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-03-boucles.md)
+- [PHP Bases 04 - Fonctions](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-04-fonctions.md)
+- PHP Bases 05 - Arrays :
+  - [le cours résumé](https://gist.github.com/tomsihap/d694dddf1f0c968202127859e3e1e026#file-01-cours-md)
+- [les exercices](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-05-tableaux.md)
 
+#### Jour 2
+- [PHP avancé 01 : paramètres d'URL (GET)](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-06-parametres-url.md)
+- [PHP avancé 02 : formulaires (POST)](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-07-formulaires.md)
+- [PHP avancé 03 : Superglobales, sessions, cookies](https://github.com/tomsihap/php-mysql-pdo-poo-course/blob/master/01-PHP/PHP-08-superglobales-sessions-cookies.md)
+
+#### Jours 3 et 4
+- PHP POO 01 : Bases de POO avec PHP :
+  - [le cours résumé](https://github.com/tomsihap/allcourses/blob/master/POO/01-cours.md)
+  - [les exercices](https://github.com/tomsihap/allcourses/blob/master/POO/01-exercices.md)
+- [PHP POO 02 : projet MVC avec PHP](https://github.com/tomsihap/allcourses/blob/master/POO/03-mvc.md)
+
+## Cours PHP
 > Durée : 5/10 jours
 
-- [Exercices de PHP progressifs des variables jusqu'aux fonctions + algorithmique](https://gist.github.com/tomsihap/6583f017ca858ae74d9221a51f82ba63)
+- [Exercices de PHP progressifs des variables jusqu'aux fonctions + algorithmique](PHP/exercices-prog.md)
 
 ### Introduction: variables et conditions
 
@@ -95,12 +120,12 @@
 
 ### Transmettre des données: GET et POST
 
-- [Cours et exercices sur GET](https://gist.github.com/tomsihap/b92d7ff51c564cb6c9db408fd0bc0a36)
-- [Cours et exercices sur POST](https://gist.github.com/tomsihap/526ba2f3193245bdc9b61ef32d7aaf94)
+- [Cours et exercices sur GET](PHP/cours-ex-get.md)
+- [Cours et exercices sur POST](PHP/cours-ex-post.md)
 
 ### PDO
 
-- [Récupérer des données de SQL avec SELECT (sans requête préparée)](https://gist.github.com/tomsihap/4c91b7e3048a63fd01579e37dd2af926)
+- [Récupérer des données de SQL avec SELECT (sans requête préparée)](PHP/PDO/intro.md)
 - [TP : WF3 Zoo](https://github.com/tomsihap/wf3zoo)
 - [TP: Pokédex](https://github.com/tomsihap/crud-example-php-course)
 
@@ -108,6 +133,7 @@
 
 > Durée : 3 jours
 
+- [Introdcution à la POO](POO/intro.md)
 - [Notions de POO : classes et objets](POO/01-cours.md)
 - [Notions de POO : classes et objets - exercices](POO/01-exercices.md)
 - [TP POO 2](POO/02-exercices.md)
