@@ -21,6 +21,7 @@
     - [PDO](#pdo)
   - [Cours POO](#cours-poo)
   - [Cours API REST et WebServices](#cours-api-rest-et-webservices)
+  - [MVC](#mvc)
   - [Cours Symfony](#cours-symfony)
   - [Cours LAMP](#cours-lamp)
 
@@ -92,6 +93,7 @@
 ## Cours PHP
 > Durée : 5/10 jours
 
+- [Résumé de cours PHP](https://gist.github.com/tomsihap/19e215d253ce89e46727375fef72a8b0)
 - [Exercices de PHP progressifs des variables jusqu'aux fonctions + algorithmique](PHP/exercices-prog.md)
 
 ### Introduction: variables et conditions
@@ -116,12 +118,16 @@
 
 ### Fonctions
 
+- [Résumé de  cours: Fonctions](https://gist.github.com/tomsihap/6f70c5051b3cf28efb913d933df679cb)
 - [Cours, exemples, exercices](https://gist.github.com/tomsihap/a80e77745ad223b02de1053403eaa903)
 
 ### Transmettre des données: GET et POST
 
+- [Résumé de cours: GET, POST, Superglobales](https://gist.github.com/tomsihap/8a949c500766d23baefaff5d9d017cb9)
 - [Cours et exercices sur GET](PHP/cours-ex-get.md)
 - [Cours et exercices sur POST](PHP/cours-ex-post.md)
+
+- [TP: Formulaires](https://gist.github.com/tomsihap/de9f3d63602283593b5c3a71a42533b6)
 
 ### PDO
 
@@ -145,6 +151,9 @@
 > Durée : 3 jours
 - [Cours: WebServices et API Rest](https://github.com/tomsihap/php-api-course/blob/master/01%20-%20cours.md)
 
+## MVC
+- [TP: MVC](https://gist.github.com/tomsihap/0e10bd34ed1cb8ba1366866849e3da96)
+
 ## Cours Symfony
 
 > Durée : 8/10 jours
@@ -153,6 +162,8 @@
 - [Cours complet](Symfony/complete-course.md)
 - [TP: NotaResto + correction](https://gist.github.com/tomsihap/e939150d64b25c7b4010c847a3e77d48)
 - [TP: API avec Symfony (exercices + correction)](Symfony/API-course.md)
+
+- [TP: Symfony](https://gist.github.com/tomsihap/bbec9a89da170c7d4e02bf8046799878)
 
 ## Cours LAMP
 
