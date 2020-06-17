@@ -3,6 +3,7 @@
   - [0. À propos du cours](#0-à-propos-du-cours)
   - [1. Installation](#1-installation)
     - [1.1. Créer un nouveau projet](#11-créer-un-nouveau-projet)
+  - [> Créez le projet nommé `blog` dans le dossier de votre choix. Pas besoin qu'il soit dans `www` : Symfony a son propre serveur web et n'est pas dépendant de XAMPP/MAMP/etc ! |](#blockquotecréez-le-projet-nommé-blog-dans-le-dossier-de-votre-choix-pas-besoin-quil-soit-dans-www--symfony-a-son-propre-serveur-web-et-nest-pas-dépendant-de-xamppmampetc--blockquote)
     - [1.1b. Installer le CLI de Symfony](#11b-installer-le-cli-de-symfony)
     - [1.2. Lancer le serveur intégré](#12-lancer-le-serveur-intégré)
   - [1.3. Configurer l'application](#13-configurer-lapplication)
@@ -96,11 +97,17 @@
 Créez un nouveau projet Symfony avec la commande suivante :
 
 ```
-composer create-project symfony/website-skeleton nom-du-project
-cd nom-du-project
+symfony new nom-du-projet --full
 ```
 
-Nous pouvons également utiliser `composer create-project symfony/skeleton` qui contient les éléments minimaux d'une application web (microservices, APIs...) et nous laisse le choix d'installer les outils dont nous aurions besoin, néanmoins `symfony/website-skeleton` contient tous les outils nécessaires pour bien commencer.
+Nous pouvons également utiliser la commande sans `--full` qui contient les éléments minimaux d'une application web (microservices, APIs...) et nous laisse le choix d'installer les outils dont nous aurions besoin, néanmoins la commande avec `--full` contient tous les outils nécessaires pour bien commencer une application full-stack.
+
+---
+
+> :rocket: Exercice 1 |
+> ---------|
+> Créez le projet nommé `blog` dans le dossier de votre choix. Pas besoin qu'il soit dans `www` : Symfony a son propre serveur web et n'est pas dépendant de XAMPP/MAMP/etc ! |
+---
 
 ### 1.1b. Installer le CLI de Symfony
 
