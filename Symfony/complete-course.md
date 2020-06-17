@@ -298,7 +298,7 @@ Et voilà, l'object `Request $request`, qui par exemple peut être issu de l'env
 
 > :rocket: Exercice 9 :rocket: |
 > ---------|
-> Faites une route nommé `contact-us`, accessible par `/contactez-nous` ou par `/contact-us`.|
+> Faites une route nommée `contact-us`, accessible par `/contactez-nous` ou par `/contact-us`.|
 
 ```php
 /**
