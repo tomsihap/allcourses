@@ -3,7 +3,6 @@
   - [0. À propos du cours](#0-à-propos-du-cours)
   - [1. Installation](#1-installation)
     - [1.1. Créer un nouveau projet](#11-créer-un-nouveau-projet)
-  - [> Créez le projet nommé `blog` dans le dossier de votre choix. Pas besoin qu'il soit dans `www` : Symfony a son propre serveur web et n'est pas dépendant de XAMPP/MAMP/etc ! |](#blockquotecréez-le-projet-nommé-blog-dans-le-dossier-de-votre-choix-pas-besoin-quil-soit-dans-www--symfony-a-son-propre-serveur-web-et-nest-pas-dépendant-de-xamppmampetc--blockquote)
     - [1.1b. Installer le CLI de Symfony](#11b-installer-le-cli-de-symfony)
     - [1.2. Lancer le serveur intégré](#12-lancer-le-serveur-intégré)
   - [1.3. Configurer l'application](#13-configurer-lapplication)
@@ -94,20 +93,19 @@
 > Documentation : [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
 
 ### 1.1. Créer un nouveau projet
-Créez un nouveau projet Symfony avec la commande suivante :
+
+> :rocket: Exercice 1 :rocket: |
+> ---------|
+> Créez le projet nommé `blog` dans le dossier de votre choix. Pas besoin qu'il soit dans `www` : Symfony a son propre serveur web et n'est pas dépendant de XAMPP/MAMP/etc ! |
+
+
+Vous pouvez créer un nouveau projet Symfony avec la commande suivante :
 
 ```
 symfony new nom-du-projet --full
 ```
 
 Nous pouvons également utiliser la commande sans `--full` qui contient les éléments minimaux d'une application web (microservices, APIs...) et nous laisse le choix d'installer les outils dont nous aurions besoin, néanmoins la commande avec `--full` contient tous les outils nécessaires pour bien commencer une application full-stack.
-
----
-
-> :rocket: Exercice 1 |
-> ---------|
-> Créez le projet nommé `blog` dans le dossier de votre choix. Pas besoin qu'il soit dans `www` : Symfony a son propre serveur web et n'est pas dépendant de XAMPP/MAMP/etc ! |
----
 
 ### 1.1b. Installer le CLI de Symfony
 
@@ -129,6 +127,12 @@ Pour la modifier, modifiez le fichier `.env`.
 
 > Documentation [Routing](https://symfony.com/doc/current/routing.html)
 
+
+> :rocket: Exercice 2 :rocket: |
+> ---------|
+> Créez la route `/about` dans `routes.yaml` et son controller.|
+
+
 ### 2.1. Créer une première route
 Il existe plusieurs façons de déclarer des routes dans Symfony :
 
@@ -142,7 +146,7 @@ about:
     controller: App\Controller\PagesController::about
 ```
 
-Dans ce cas, nous nommons (c'est simplement un nom interne à l'application) notre route `about`, et nous indiquons à Symfony de se diriger vers le contrôleur `PagesController` et la méthode `about` lorsque l'utilisateur va sur l'URI `/a-propos` (donc l'URL `http://127.0.0.1:8000/a-propos` par exemple).
+Dans ce cas, nous nommons (c'est simplement un nom interne à l'application qui nous sert de référence pour cette route/méthode) notre route `about`, et nous indiquons à Symfony de se diriger vers le contrôleur `PagesController` et la méthode `about` lorsque l'utilisateur va sur l'URI `/a-propos` (donc l'URL `http://127.0.0.1:8000/a-propos` par exemple).
 
 ### 2.2 Créer le controller
 Il faut donc créer un `PagesController` : d'après le fichier `composer.json`, dans la key `psr-4`, on sait que le namespace `App/` pointe vers le dossier `src/`.
@@ -171,6 +175,12 @@ Et voilà, nous avons fait notre premier Hello world.
 
 ### 2.3. Annotations
 
+
+> :rocket: Exercice 3 :rocket: |
+> ---------|
+> Créez la route `/home` en annotations dans PagesController. |
+
+
 Une autre manière de créer des routes dans Symfony sont les annotations. Toujours dans `PagesController.php` :
 
 ```php
@@ -191,6 +201,10 @@ Les annotations permettent de déclarer les routes juste au dessus de la méthod
 
 ### 2.4. Routes et paramètres
 
+> :rocket: Exercice 4 :rocket: |
+> ---------|
+> Dans PagesController, réez la route `/articles/{id}` qui affiche "Voici l'article numéro {id}". |
+
 Nous pouvons écouter des paramètres dans les routes en ajoutant des `{variables}` dans l'URL :
 
 ```php
@@ -203,6 +217,17 @@ public function users(int $userId, int $bookId) {
 ```
 
 ### 2.5. Paramètres : wildcards
+
+
+> :rocket: Exercice 5 :rocket: |
+> ---------|
+> Modifiez la route `/articles/{id}` de sorte à n'accepter que des nombres. |
+
+
+> :rocket: Exercice 6 :rocket: |
+> ---------|
+> Créez la route `/products/{product-name}`. Elle ne doit accepter que des lettres et des tirets. Documentez-vous sur les REGEX si besoin. |
+
 
 Nous pouvons utiliser des wildcards dans les routes, c'est à dire une chaîne de caractères quelconque que l'on peut valider par des expressions régulières (regex) :
 
@@ -230,6 +255,17 @@ public function list($page = 1)
 
 ### 2.7. Request et Response
 
+
+> :rocket: Exercice 7 :rocket: |
+> ---------|
+> Créez une route `/contact` qui récupère en autowiring la requête utilisateur dans $request et débuguez la grâce à `dump($request)` ou `dd($request)` (ce sont des `var_dump()` améliorés à utiliser avec Symfony) |
+
+
+> :rocket: Exercice 8 :rocket: |
+> ---------|
+> Trouvez la différence entre `dd()` et `dump()`. |
+
+
 Nous utilisions les Request et Response du package HttpFoundation pour gérer les requêtes et réponses HTTP. Grâce à l'autowiring (autochargement des classes), nous pouvons directement appeler la requête dans les arguments de la méthode :
 
 ```php
@@ -255,9 +291,14 @@ Plusieurs nouveaux concepts ici :
 - Nous avons précisé les méthodes autorisées pour cette route avec `methods={"POST"}`
 - Nous avons indiqué le type de retour de la fonction (`: Response`)
 
-Et voilà, l'object `Request $request` issu de l'envoi d'un formulaire par exemple disponible à l'utilisation ! Nous pouvons accéder aux valeurs POST par exemple avec `$request->get('name');`.
+Et voilà, l'object `Request $request`, qui par exemple peut être issu de l'envoi d'un formulaire, est disponible à l'utilisation ! Nous pouvons accéder aux valeurs POST par exemple avec `$request->get('name');`.
 
 ### 2.8. Routing avancé : localisation des URI
+
+
+> :rocket: Exercice 9 :rocket: |
+> ---------|
+> Faites une route nommé `contact-us`, accessible par `/contactez-nous` ou par `/contact-us`.|
 
 ```php
 /**
@@ -278,9 +319,15 @@ Un outil de la console nous permet de lister toutes les routes déclarées (prat
 
 ### 3.1. Afficher une vue
 
+
+> :rocket: Exercice 9 :rocket: |
+> ---------|
+> Faites hériter votre controller de `AbstractController` (attention au `use`) |
+
+
 Maintenant que nous avons vu le routeur et le controller, nous allons voir comment retourner une vue depuis un controller.
 
-Symfony utilise Twig comme moteur de template : grâce à au container d'injection de dépendances, il peut être disponible directement auprès du contrôleur :
+Symfony utilise Twig comme moteur de template : grâce au container de service de la classe parente AbstractController qu'il vous faut hériter, il peut être disponible directement auprès du contrôleur :
 
 ```php
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -299,6 +346,12 @@ class PagesController extends AbstractController {
 En héritant de `AbstractController`, nous pouvons dorénavant utiliser la méthode `render()` qui prend en premier paramètre le fichier Twig à utiliser.
 
 ### 3.2. Créer une vue
+
+
+> :rocket: Exercice 10 :rocket: |
+> ---------|
+> Créez une vue dans le dossier `/templates` nommée `contact.html.twig` et affichez-la quand on va sur la route `contact-us`. |
+
 
 Les vues se trouvent dans le dossier `/templates` (défini par dans `twig.default_path` le fichier de configuration `twig.yaml`).
 
@@ -344,6 +397,25 @@ Le code HTML généré pour le client sera donc `base.html.twig` avec ce code ci
 
 ### 3.3. Passer des variables à la vue
 
+
+> :rocket: Exercice 11 :rocket: |
+> ---------|
+> Créez une route `/articles` et affichez tous les articles (titre et contenu) issus du tableau suivant : |
+
+> ```php
+> $articles = [
+>     [
+>          'title' => 'Titre 1',
+>          'content' => 'Contenu du premier article',
+>     ],
+>     [
+>          'title' => 'Titre 2',
+>          'content' => 'Contenu du second article',
+>     ],
+> ];
+> ```
+
+
 Nous pouvons évidemment passer des variables à la vue depuis le contrôleur :
 
 ```php
@@ -388,7 +460,7 @@ Nous pouvons maintenant utiliser les variables dans Twig :
 
 {% block body %}
 <div class="example-wrapper">
-    <h1>Hello, vous êtes sur la page {{ pageTitle}} !</h1>
+    <h1>Hello, vous êtes sur la page {{ pageTitle }} !</h1>
 </div>
 {% endblock %}
 ```
@@ -426,6 +498,11 @@ Nous pouvons faire un affichage conditionnel en Twig :
 
 ### 3.5 Filters
 
+> :rocket: Exercice 12 :rocket: |
+> ---------|
+> Dans l'affichage de `/articles`, affichez les titres inversés (par exemple: "Titre" devient "ertiT" grâce à un pipe Twig (voir la documentation de Twig) |
+
+
 Nous pouvons modifier la donnée à la volée grâce aux filters (pipes) :
 ```twig
 {{ 'bienvenue'|upper }} {# retourne : 'BIENVENUE' #}
@@ -433,7 +510,6 @@ Nous pouvons modifier la donnée à la volée grâce aux filters (pipes) :
 
 ### 3.6. Documentation
 La documentation complète de Twig est disponible ici : [documentation Twig](https://twig.symfony.com/doc/2.x/).
-
 
 
 ## 4. Doctrine, Entities et Repositories
