@@ -107,7 +107,7 @@ Voilà ! Quelle que soit l'URL saisie, nous tomberons toujours sur `index.php`.
 
 ### Prérequis VSCode !
 
-- Pour que VSCode puisse récupérer correctement les librairies installées avec Composer, vous devez **désinstaller** toutes les extensions relatives à PHP que vous avez (elles risquent de faire des conflits), et n'installer que l'extension `PHP Intelephense` (attention, par `PHP Intellisense`).
+- Pour que VSCode puisse récupérer correctement les librairies installées avec Composer, vous devez **désinstaller** toutes les extensions relatives à PHP que vous avez (elles risquent de faire des conflits), et n'installer que l'extension `PHP Intelephense` (attention, **pas** `PHP Intellisense`).
 
 
 ### Installer le router
