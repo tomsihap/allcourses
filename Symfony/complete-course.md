@@ -320,7 +320,7 @@ Un outil de la console nous permet de lister toutes les routes déclarées (prat
 ### 3.1. Afficher une vue
 
 
-> :rocket: Exercice 9 :rocket: |
+> :rocket: Exercice 10 :rocket: |
 > ---------|
 > Faites hériter votre controller de `AbstractController` (attention au `use`) |
 
@@ -348,7 +348,7 @@ En héritant de `AbstractController`, nous pouvons dorénavant utiliser la méth
 ### 3.2. Créer une vue
 
 
-> :rocket: Exercice 10 :rocket: |
+> :rocket: Exercice 11 :rocket: |
 > ---------|
 > Créez une vue dans le dossier `/templates` nommée `contact.html.twig` et affichez-la quand on va sur la route `contact-us`. |
 
@@ -398,7 +398,7 @@ Le code HTML généré pour le client sera donc `base.html.twig` avec ce code ci
 ### 3.3. Passer des variables à la vue
 
 
-> :rocket: Exercice 11 :rocket: |
+> :rocket: Exercice 12 :rocket: |
 > ---------|
 > Créez une route `/articles` et affichez tous les articles (titre et contenu) issus du tableau suivant : |
 
@@ -498,7 +498,7 @@ Nous pouvons faire un affichage conditionnel en Twig :
 
 ### 3.5 Filters
 
-> :rocket: Exercice 12 :rocket: |
+> :rocket: Exercice 13 :rocket: |
 > ---------|
 > Dans l'affichage de `/articles`, affichez les titres inversés (par exemple: "Titre" devient "ertiT" grâce à un pipe Twig (voir la documentation de Twig) |
 
