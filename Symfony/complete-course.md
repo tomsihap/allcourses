@@ -114,7 +114,7 @@ Suivez les instructions selon votre OS : https://symfony.com/download. **ATTENTI
 ### 1.2. Lancer le serveur intégré
 
 L'installation nous a donné tout une boîte à outils en CLI : `php bin/console`.
-Pour lancer le serveur depuis le dossier de l'app : `symfony server:run`
+Pour lancer le serveur depuis le dossier de l'app : `symfony server:start`
 
 ## 1.3. Configurer l'application
 
