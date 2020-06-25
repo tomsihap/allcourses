@@ -38,7 +38,6 @@
     - [4.9. Supprimer un object (DELETE)](#49-supprimer-un-object-delete)
   - [5. Commandes make](#5-commandes-make)
     - [5.1. make:controller](#51-makecontroller)
-    - [5.3. Automagique : make:crud !](#53-automagique--makecrud-)
   - [6. Forms](#6-forms)
     - [6.1. make:form](#61-makeform)
       - [Afficher le formulaire généré dans Twig](#afficher-le-formulaire-généré-dans-twig)
@@ -48,6 +47,7 @@
     - [6.4. Validations](#64-validations)
       - [6.4.1. Validations par les annotations](#641-validations-par-les-annotations)
       - [6.4.2. Validation par les FormType](#642-validation-par-les-formtype)
+    - [6.5. Créer un CRUD grâce à make](#65-créer-un-crud-grâce-à-make)
   - [7. Notions diverses](#7-notions-diverses)
     - [7.1. Rediriger vers une autre route](#71-rediriger-vers-une-autre-route)
     - [7.2. Entities : Relations](#72-entities--relations)
@@ -320,7 +320,7 @@ Un outil de la console nous permet de lister toutes les routes déclarées (prat
 ### 3.1. Afficher une vue
 
 
-> :rocket: Exercice 9 :rocket: |
+> :rocket: Exercice 10 :rocket: |
 > ---------|
 > Faites hériter votre controller de `AbstractController` (attention au `use`) |
 
@@ -348,7 +348,7 @@ En héritant de `AbstractController`, nous pouvons dorénavant utiliser la méth
 ### 3.2. Créer une vue
 
 
-> :rocket: Exercice 10 :rocket: |
+> :rocket: Exercice 11 :rocket: |
 > ---------|
 > Créez une vue dans le dossier `/templates` nommée `contact.html.twig` et affichez-la quand on va sur la route `contact-us`. |
 
@@ -398,7 +398,7 @@ Le code HTML généré pour le client sera donc `base.html.twig` avec ce code ci
 ### 3.3. Passer des variables à la vue
 
 
-> :rocket: Exercice 11 :rocket: |
+> :rocket: Exercice 12 :rocket: |
 > ---------|
 > Créez une route `/articles` et affichez tous les articles (titre et contenu) issus du tableau suivant : |
 
@@ -498,7 +498,7 @@ Nous pouvons faire un affichage conditionnel en Twig :
 
 ### 3.5 Filters
 
-> :rocket: Exercice 12 :rocket: |
+> :rocket: Exercice 13 :rocket: |
 > ---------|
 > Dans l'affichage de `/articles`, affichez les titres inversés (par exemple: "Titre" devient "ertiT" grâce à un pipe Twig (voir la documentation de Twig) |
 
@@ -511,6 +511,16 @@ Nous pouvons modifier la donnée à la volée grâce aux filters (pipes) :
 ### 3.6. Documentation
 La documentation complète de Twig est disponible ici : [documentation Twig](https://twig.symfony.com/doc/2.x/).
 
+> :rocket: Exercice 14 :rocket: |
+> ---------|
+>  Créez une route GET /messagerie  qui affichera avec Twig un formulaire avec "nom", "prénom", "message"  |
+
+
+> :rocket: Exercice 15 :rocket: |
+> ---------|
+>  Créez une route POST /messagerie  qui récupèrera les données du formulaire  via $request  (indice: google "symfony request post params") et les affichera dans  une page Twig |
+
+
 
 ## 4. Doctrine, Entities et Repositories
 
@@ -518,6 +528,10 @@ La documentation complète de Twig est disponible ici : [documentation Twig](htt
 > OpenClassrooms : [Gérez vos données avec Doctrine ORM](https://openclassrooms.com/fr/courses/5489656-construisez-un-site-web-a-l-aide-du-framework-symfony-4/5517031-gerez-vos-donnees-avec-doctrine-orm)`
 
 ### 4.1. Création de la base de données
+
+> :rocket: Exercice 16 :rocket: |
+> ---------|
+>  Cnfigurer le .env de sorte à se connecter au mysql de WAMP/XAMPP/MAMP et à la base de données symfoblog . |
 
 Doctrine est un ORM (Object-relationnal Mapping), qui implémente le pattern Data Mapper. Concrètement, le Data Mapper synchronise un object dans le PHP avec la base de données, ce qui nous donne une couche Model performante dans notre MVC.
 
@@ -542,6 +556,12 @@ Et voilà, la base de données a été créée !
 
 ### 4.2. Création des entités
 
+
+> :rocket: Exercice 17 :rocket: |
+> ---------|
+>  Créer l'entité Article comme définie dans le cours. En cas d'erreur, supprimez les fichiers entity/Article.php  et repositories/ArticleRepository.php  et recommencez la commande |
+
+
 Nous allons créer des Entity : ce sont l'équivalent des Model du MVC, il s'agit de la classe qui mappera la table correspondante en base de données.
 
 Pour cela, ouvrez une console et saisissez :
@@ -561,6 +581,11 @@ created_at (datetime, NOT NULL)
 Une fois l'entité créée, nous pouvons aller la voir dans `src/Entity/Article.php`.
 
 ### 4.3. Migrations
+
+> :rocket: Exercice 18  :rocket: |
+> ---------|
+>  Effectuer une migration et vérifier qu'il y ait la table Article  créée dans PHPMyAdmin |
+
 
 L'entité est un mapping de notre base de données : c'est à dire que le fichier Entity correspond, grâce aux annotations `@ORM` notamment, à ce à quoi ressemble notre table en base de données.
 
@@ -625,6 +650,12 @@ php bin/console doctrine:migrations:migrate # On migre la nouvelle migration
 
 ### 4.5. Constructeur et createdAt
 
+
+> :rocket: Exercice 19 :rocket: |
+> ---------|
+>  Modifiez le constructeur comme proposé dans le cours. |
+
+
 Comme notre entité représente notre table en base de données, nous pouvons gérer les données comme tel : pour donner une valeur par défaut au champ `created_at`, nous pouvons créer un constructeur dans `Article.php` : les getters et setters sont déjà générés !
 
 ```php
@@ -637,6 +668,13 @@ public function __construct() {
 ```
 
 ### 4.6. Enregistrer une donnée : service Doctrine et EntityManager (CREATE)
+
+
+> :rocket: Exercice 20 :rocket: |
+> ---------|
+>  Faites une route dans laquelle vous pourrez tester la création d'un article en dur comme indiqué dans le cours. |
+
+
 
 > Un service est une classe qui remplit une fonction bien précise, accessible partout dans notre code grâce au container de services.
 
@@ -693,6 +731,11 @@ Et voilà ! L'article est enregistré en base de données. On peut dorénavant *
 
 ### 4.7. Lire des données (READ)
 
+> :rocket: Exercice 21 :rocket: |
+> ---------|
+> Affichez dans un `dd()` puis dans Twig la liste des articles. |
+
+
 Lors de la création de notre entité, un fichier `Repository\ArticleRepository.php` a été créé : le repository est le fichier qui s'occupe de récupérer les données de la base de données.
 
 Voici comment il s'utilise :
@@ -711,7 +754,49 @@ $article = $articleRepository->find(43);
 $articles = $articleRepository->findBy(['title' => 'Hello title!']);
 ```
 
+
+> :rocket: Exercice 22 :rocket: |
+> ---------|
+> Voir ci desous : |
+
+```
+Créez un ProductsController avec les routes suivantes : 
+    GET /products 
+    GET /products/new 
+    POST /products 
+
+- Créez l'entité suivante : 
+Product
+----
+name (string)
+price (int)
+quantity (int)
+
+
+Dans    GET /products  : faites une page avec Twig qui affichera la liste des produits. Vous pouvez en créer à la main dans la base de données pour tester.
+
+Dans GET /products/new : faites un formulaire de création d'un produit avec Twig qui ira vers la route POST /products . Conseil : pour faire le lien dans le "action" du formulaire, il vous faut renseigner le name de la route de destination, que vous aurez renseigné au préalable dans le controller, de cette façon :
+<form action="{{ path('products_new'}}" method="post">
+
+
+Dans POST /products, vous récupérerez les données du formulaire grâce à $request et vous créérez un nouveau Product. Conseil pour récupérer les données du formulaire dans $request :
+$request->request->get('title');
+
+
+À la fin de la méthode du controller qui traite l'insert POST /products, faites une redirection vers la page GET /products grâce à $this->redirectToRoute('nom_de_la_route');
+```
+
 ### 4.8. Lire des données: requêtes complexes avec le Repository et le QueryBuilder de Doctrine
+
+
+> :rocket: Exercice 23 A :rocket: |
+> ---------|
+> en page d'accueil, grâce à une méthode findByQuantityNotNull() dans leProductController, affichez la liste des produits dont la quantité n'est pas nulle |
+
+
+> :rocket: Exercice 23 B :rocket: |
+> ---------|
+> faire un formulaire de recherche en page d'accueil qui ira vers  une route /products/search du ProductController, qui retournera les éléments recherchés grâce à une méthode créée dans le ProductRepository (findBySearch($elementDeRecherche))  Par exemple, quand je saisis chaise dans le formulaire je dois tomber sur les produits dont le name est "Chaise longue", "Grande chaise en bois", etc. Il faudra faire une requête avec LIKE %chaise% . Inspirez vous d'exemples grâce à une recherche Google également car les %  auront une petite particularité pour fonctionner dans votre requête si jamais elle ne marche pas tout de suite. |
 
 > Documentation: [Doctrine - Working with Query Builder](https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html)
 
@@ -749,8 +834,17 @@ $articles = $articleRepository->findByName('sciences');
 ```
 
 
+> :rocket: Exercice 24 :rocket: |
+> ---------|
+> Faites une  page `GET /products/{product}` qui affichera un produit (page show). |
+
 
 ### 4.8. Mettre à jour (UPDATE)
+
+> :rocket: Exercice 25 :rocket: |
+> ---------|
+> Faites une  page `GET /products/{product}/edit` qui sera un formulaire d'édition d'un produit. |
+
 
 Maintenant que nous savons lire une donnée et écrire une donnée, nous allons mixer les deux et faire une méthode d'update.
 
@@ -795,6 +889,12 @@ public function update(Request $request, Article $article) {
 
 ### 4.9. Supprimer un object (DELETE)
 
+
+> :rocket: Exercice 26 :rocket: |
+> ---------|
+> Faites une  page `GET /products/{product}/delete` qui sera un formulaire de suppression d'un produit. |
+
+
 La suppression est très facile en utilisant tout ce que nous venons de voir :
 
 ```php
@@ -802,28 +902,54 @@ $entityManager->remove($article);
 $entityManager->flush();
 ```
 
+
+> :rocket: Exercice 27 :rocket: |
+> ---------|
+> Sur une page `GET /products` qui liste tous les produits, ajoutez également des liens vers les pages show, edit, delete de chaque produit. |
+
+```
+Les liens avec paramètres se crééent ainsi :
+{{ path('nom_de_la_route', {param1: value1, param2: value2} ) }}
+
+
+Exemple :
+
+Selon ce qu'attend la route (un id, l'objet lui même...)
+{{ path('article_show', {id: article.id} ) }}
+
+Ou alors :
+{{ path('commande_edit', {commande: commande'} ) }}
+```
+
+
+
 ## 5. Commandes make
 
 ### 5.1. make:controller
 
 Vous pouvez créer un nouveau contrôleur avec la commande `make:controller PagesController`. Ce contrôleur contiendra une première page `index()` par défaut avec un template dans `templates/pages/index.html.twig` !
 
-### 5.3. Automagique : make:crud !
-
-On peut créer automatiquement un CRUD pour une entité (qui doit exister avant de faire la commande) : `make:crud Article`.
-
-La commande va créer un `controller`, un ficher `Type` (le formulaire généré) et des vues dans `/template`.
-
-> **Attention:** Il est très important de bien comprendre les fonctionnements que nous voyons de voir jusqu'à présent ! Bien que la commande `make:crud` fait "tout ça d'un coup", c'est important de comprendre tout ce que nous avons vu plutôt que d'utiliser des générateurs afin de savoir comment les débugger !
-
-
 ## 6. Forms
 
 > Documentation : [Forms](https://symfony.com/doc/current/forms.html)
 
-### 6.1. make:form
 
-> Ce formulaire est aussi celui qui se trouve généré avec `make:crud` !
+
+> :rocket: Exercice 28 :rocket: |
+> ---------|
+> Voir ci-dessous : |
+
+```
+1. Créez une entité Category (title: string, description: text null). Créez et exécutez une migration.
+2. Créez un formulaire Symfony pour l'entity Category
+3. Créez un CategoryController avec 2 routes : category_index (get)  et category_new (get, post) .
+4.  Dans la navbar ou la page d'accueil, faites un lien vers category_index
+5. Dans category_index, faites un lien vers category_new
+6. Dans la méthode de category_new, gérez le formulaire Symfony et affichez-le. Vérifiez si les données s'enregistrent en bdd
+```
+
+
+### 6.1. make:form
 
 Vous pouvez créer un formulaire auto-généré (`Type`) pour une entité : Symfony lira l'Entity et crééra le formulaire correspondant : `make:form Article`. Cela crééra un fichier dans `src/Form/ArticleType.php`.
 
@@ -899,9 +1025,6 @@ Dans `new.html.twig`, à l'endroit où afficher le formulaire :
 - `form_widget` va afficher tous les champs du formulaire à la suite avec un style par défaut
 - `form_end` va fermer la balise `<form>` du formulaire `form` passé en paramètres à Twig depuis le controller.
 
-
-
-
 ### 6.2. Styliser nos formulaires générés
 
 Les formulaires autogénérés peuvent prendre le style Boostrap en modifiant `config/packages/twig.yaml` et en ajoutant l'attribut suivant :
@@ -949,6 +1072,16 @@ Chaque champ est ajouté avec `add()` qui prend 3 arguments :
 
 
 ### 6.4. Relations 1-N et N-N et formulaires
+
+> :rocket: Exercice 29 :rocket: |
+> ---------|
+> Voir ci-dessous : |
+
+```
+1. Ajoutez un champ category  à l'entité Product (grâce à make:entity Product). Voir le cours 7.2 pour apprendre à faire une relation. Pensez à faire et executer une migration.
+2. Modifiez le ProductController  pour utiliser un formulaire Symfony tout comme on fait pour Category. Il faudra gérer le champ category  dans le formulaire, inspirez vous du cours 6.4 ! Assurez vous d'avoir des catégories en bdd pour pouvoir tester le formulaire qui inclura le choix d'une category.
+3. Dans les pages GET /product, GET /product/{product}  et  GET /, affichez le nom de la catégorie du produit grâce à product.category.title
+```
 
 On peut ajouter une relation dans un formulaire, de sorte à ce que, par exemple, avec `Article 1-N Category`, nous ayons la liste des catégories dans un select !
 
@@ -1025,6 +1158,15 @@ Cette fois, dans le fichier `src/Form/UserType` :
     ],
 ])
 ```
+
+### 6.5. Créer un CRUD grâce à make
+
+Maintenant que vous savez composer un CRUD complet en Symfony, le configurer et le customiser : On peut créer automatiquement un CRUD pour une entité (qui doit exister avant de faire la commande) : `make:crud Article`.
+
+La commande va créer un `controller`, un ficher `Type` (le formulaire généré) et des vues dans `/template`.
+
+> **Attention:** Il est très important de bien comprendre les fonctionnements que nous voyons de voir jusqu'à présent ! Bien que la commande `make:crud` fait "tout ça d'un coup", c'est important de comprendre tout ce que nous avons vu plutôt que d'utiliser des générateurs afin de savoir comment les débugger !
+
 
 ## 7. Notions diverses
 
