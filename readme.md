@@ -169,3 +169,6 @@
 
 > Durée  : 1 jour
 
+- [Cours](https://gist.github.com/tomsihap/8f57efcf5a9bd0ab7407f268166fd29a)
+- [TP guidé](https://gist.github.com/tomsihap/1ae9a9bf2aad8ba7d722a3acb4728c4b)
+
