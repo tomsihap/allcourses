@@ -92,7 +92,11 @@
 
 > Documentation : [Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)
 
-### 1.1. Créer un nouveau projet
+### 1.1. Installer le CLI de Symfony
+
+Suivez les instructions selon votre OS : https://symfony.com/download. **ATTENTION à bien suivre les instructions affichées dans le terminal s'il y en  a !**.
+
+### 1.1b. Créer un nouveau projet
 
 > :rocket: Exercice 1 :rocket: |
 > ---------|
@@ -106,10 +110,6 @@ symfony new nom-du-projet --full
 ```
 
 Nous pouvons également utiliser la commande sans `--full` qui contient les éléments minimaux d'une application web (microservices, APIs...) et nous laisse le choix d'installer les outils dont nous aurions besoin, néanmoins la commande avec `--full` contient tous les outils nécessaires pour bien commencer une application full-stack.
-
-### 1.1b. Installer le CLI de Symfony
-
-Suivez les instructions selon votre OS : https://symfony.com/download. **ATTENTION à bien suivre les instructions affichées dans le terminal s'il y en  a !**.
 
 ### 1.2. Lancer le serveur intégré
 
