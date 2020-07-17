@@ -226,7 +226,7 @@ public function users(int $userId, int $bookId) {
 
 > :rocket: Exercice 6 :rocket: |
 > ---------|
-> Créez la route `/products/{product-name}`. Elle ne doit accepter que des lettres et des tirets. Documentez-vous sur les REGEX si besoin. |
+> Créez la route `/products/{productName}`. Elle ne doit accepter que des lettres et des tirets. Documentez-vous sur les REGEX si besoin. |
 
 
 Nous pouvons utiliser des wildcards dans les routes, c'est à dire une chaîne de caractères quelconque que l'on peut valider par des expressions régulières (regex) :
