@@ -520,6 +520,13 @@ La documentation complète de Twig est disponible ici : [documentation Twig](htt
 > ---------|
 >  Créez une route POST /messagerie  qui récupèrera les données du formulaire  via $request  (indice: google "symfony request post params") et les affichera dans  une page Twig |
 
+> :rocket: Exercice d'application : créer la structure d'un e-commerce |
+> ---------|
+> - Créez les pages suivantes, toutes dans un ProductController |
+> 1. Liste des produits : faites une liste de 5 produits fictifs **dans le controller**, envoyés à la vue (ils seront ensuite remplacés par des produits en BDD) GET /products |
+> 2. Ajouter un produit (formulaire + traitement) GET /products/create et POST /products pour le traitement |
+> 3. Voir un produit (page d'un produit fictif : GET /products/{id} ) |
+> Schéma des produits : `PRODUCT(id, title, description, price, quantity)`
 
 
 ## 4. Doctrine, Entities et Repositories
