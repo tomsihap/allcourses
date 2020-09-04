@@ -527,6 +527,7 @@ La documentation complète de Twig est disponible ici : [documentation Twig](htt
 > 1. Liste des produits (`GET /products`) : faites une liste de 5 produits fictifs **dans le controller**, envoyés à la vue (ils seront ensuite remplacés par des produits en BDD)  |
 > 2. Ajouter un produit (formulaire + traitement) (`GET /products/create` et `POST /products` pour le traitement) |
 > 3. Voir un produit (page d'un produit fictif : `GET /products/{id}` ) |
+>
 > Champs à respecter pour les produits : `PRODUCT(id, title, description, price, quantity)` |
 
 
